@@ -51,7 +51,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("123")
+        print("123")//вот эта штука не пишется в консоли
      return   model.getCountOfRows()
     }
     
