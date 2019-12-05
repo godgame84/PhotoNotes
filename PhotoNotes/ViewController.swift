@@ -1,3 +1,4 @@
+
 //
 //  ViewController.swift
 //  PhotoNotes
@@ -6,15 +7,18 @@
 //  Copyright © 2019 Иван Лебедев. All rights reserved.
 //
 
+
 import UIKit
 
 class ViewController: UIViewController {
+    
     
   
    // let pickerController = UIImagePickerController()
     
     
     var model = Model()
+    
    // let picker = UIFontPickerViewController
     
     @IBOutlet weak var tableCellsView: UITableView!
@@ -25,6 +29,7 @@ class ViewController: UIViewController {
           model.createCell()
     }
 
+    
     override func viewDidLoad() {
       
         model.createCell()
@@ -32,6 +37,7 @@ class ViewController: UIViewController {
     
         // Do any additional setup after loading the view.
     }
+    
 
     func makePhoto(){
         let isCameraAvailable = UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType(rawValue: 1)!)
@@ -46,6 +52,7 @@ class ViewController: UIViewController {
     }
    
 }
+
 
 // - MARK: public methods
 
@@ -65,6 +72,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
 }
 
+
 extension ViewController: ModelDelegate {
 
 
@@ -73,5 +81,6 @@ extension ViewController: ModelDelegate {
     }
 
 }
+
 
 

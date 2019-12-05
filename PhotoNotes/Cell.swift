@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 class Cell {
     var image : URL?
     var date : String?
