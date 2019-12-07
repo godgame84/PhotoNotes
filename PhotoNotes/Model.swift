@@ -11,28 +11,34 @@ protocol ModelDelegate: class {
 }
 
 
+
 protocol ModelProtocol: class {
     var cells: String { get set }
 }
+
 
 import Foundation
 
 class Model {
     var cells = ["2"]
+
     
     
   //  var cells = [Cell]()
     weak var delegate:ModelDelegate?
+    
     
     func createCell () {
         cells.append("asdfd")
         delegate?.cellsDidUpdate()
     }
     
+    
     func getCountOfRows() -> Int {
         return cells.count
     }
 
+    
     
    
   }

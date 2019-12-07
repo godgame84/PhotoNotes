@@ -1,3 +1,4 @@
+
 //
 //  ViewController.swift
 //  PhotoNotes
@@ -6,34 +7,43 @@
 //  Copyright © 2019 Иван Лебедев. All rights reserved.
 //
 
+
 import UIKit
 
 class ViewController: UIViewController {
+    
     
   
    // let pickerController = UIImagePickerController()
     
     
-    var model = Model()
+   private var model = Model()
+    
    // let picker = UIFontPickerViewController
     
-    @IBOutlet weak var tableCellsView: UITableView!
-    
+    @IBOutlet weak var tableCellsView: UITableView!{
+        didSet{
+            tableCellsView.delegate = self
+            tableCellsView.dataSource = self
+        }
+    }
     @IBAction func addPhotoNew(_ sender: UIButton) {
         //makePhoto()
          
           model.createCell()
     }
 
+    
     override func viewDidLoad() {
-      
+        super.viewDidLoad()
         model.createCell()
        // tableCellsView.reloadData()
     
         // Do any additional setup after loading the view.
     }
+    
 
-    func makePhoto(){
+   private func makePhoto(){
         let isCameraAvailable = UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType(rawValue: 1)!)
         if isCameraAvailable == true {
             let whichTypeOfCamera = UIImagePickerController.availableMediaTypes(for: UIImagePickerController.SourceType(rawValue: 1)!)
@@ -47,23 +57,23 @@ class ViewController: UIViewController {
    
 }
 
+
 // - MARK: public methods
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("123")
      return   model.getCountOfRows()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        guard let cell = tableView.dequeueReusableCell(withIdentifier: "photoCellIdentifier") as? TableViewCell
         else {return UITableViewCell()}
-        print("123123")
         cell.cellLabel.text = model.cells[indexPath.row]
         return cell
     }
     
 }
+
 
 extension ViewController: ModelDelegate {
 
@@ -73,5 +83,7 @@ extension ViewController: ModelDelegate {
     }
 
 }
+
+
 
 
