@@ -44,6 +44,6 @@
 	<key>NSCameraUsageDescription</key>
 	<string>This app wants to take pictures</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>This app wants to add photos</string>
+	<string>This app wants to add photos and use your photo library</string>
 </dict>
 </plist>

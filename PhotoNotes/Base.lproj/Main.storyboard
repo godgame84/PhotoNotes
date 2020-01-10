@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,16 +28,25 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3MB-hC-GmC">
-                                                    <rect key="frame" x="0.0" y="-1" width="414" height="44"/>
+                                                    <rect key="frame" x="0.0" y="-1" width="290" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e1J-Dp-BCQ">
+                                                    <rect key="frame" x="298" y="-1" width="116" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <accessibility key="accessibilityConfiguration">
+                                                        <bool key="isElement" value="YES"/>
+                                                    </accessibility>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="cellImageView" destination="e1J-Dp-BCQ" id="Lhp-Du-kf4"/>
                                             <outlet property="cellLabel" destination="3MB-hC-GmC" id="ybw-aW-Etu"/>
+                                            <outlet property="imageView" destination="e1J-Dp-BCQ" id="Mku-i0-FIS"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -55,12 +64,12 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="l9V-5R-qed" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="BFS-cn-6EY"/>
+                            <constraint firstItem="l9V-5R-qed" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6St-c5-0BA"/>
+                            <constraint firstItem="l9V-5R-qed" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ESC-jq-qnB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="719-xD-f4j" secondAttribute="trailing" constant="20" id="FmZ-U6-j75"/>
+                            <constraint firstItem="l9V-5R-qed" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Fyp-T6-mN1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="719-xD-f4j" secondAttribute="bottom" constant="20" id="Gja-QR-hl3"/>
-                            <constraint firstItem="l9V-5R-qed" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QAr-ks-2Kd"/>
-                            <constraint firstItem="l9V-5R-qed" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Wzh-Vw-wlc"/>
-                            <constraint firstItem="l9V-5R-qed" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ers-kj-mZu"/>
+                            <constraint firstItem="l9V-5R-qed" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="xu3-en-IRz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
