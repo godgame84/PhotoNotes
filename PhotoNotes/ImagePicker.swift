@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import AVFoundation
 
 public protocol ImagePickerDelegate: class {
-    func didSelect(image:UIImage)
+    func didSelect(image:UIImage?)
 }
 
 open class ImagePicker: NSObject {
+    
     
     private let pickerController: UIImagePickerController
     private weak var presentationController: UIViewController?
@@ -31,6 +33,39 @@ open class ImagePicker: NSObject {
         self.pickerController.mediaTypes = ["public.image"]
     }
     
+
+    @IBAction private func appendPhotoButtonDidTapped( _ sender: UIButton? = nil) {
+        
+        let status = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
+        switch status {
+        case .authorized, .notDetermined:
+            return
+        case .denied, .restricted:
+            showPhotoPermissionMessage()
+        @unknown default:
+            fatalError()
+        }
+    }
+    
+    // - MARK проверка
+    private func showPhotoPermissionMessage() {
+        let alert = UIAlertController(title: "Добавить фото",
+                                      message: "Для добавление фото к сообщению, необходимо разрешить приложению доступ к камере телефона в настройках приложения", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: { (action) in
+            
+        }))
+        alert.addAction(UIAlertAction(title: "В настройки", style: .default, handler: { (action) in
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+            } else {
+                UIApplication.shared.openURL(URL(string: UIApplication.openSettingsURLString)!)
+            }
+        }))
+        self.presentationController?.present(alert, animated: true, completion: nil)
+    }
+    
+
+    
     private func action( for type:UIImagePickerController.SourceType, title:String) -> UIAlertAction?{
         guard UIImagePickerController.isSourceTypeAvailable(type) else {
             return nil
@@ -42,7 +77,7 @@ open class ImagePicker: NSObject {
     }
     
     public func present(from sourceView: UIView){
-        
+        appendPhotoButtonDidTapped()
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         //надр же их всех описать
@@ -67,13 +102,14 @@ open class ImagePicker: NSObject {
     private func pickerController(_ controller: UIImagePickerController, didSelect image: UIImage?) {
            controller.dismiss(animated: true, completion: nil)
 
-        self.delegate?.didSelect(image: image!)
+        self.delegate?.didSelect(image: image)
        }
     
 }
 
 extension ImagePicker: UIImagePickerControllerDelegate{
     public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        
         self.pickerController(picker, didSelect: nil)
     }
     

@@ -10,26 +10,33 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController{
     // - MARK: image controller
     
+ 
   var imagePicker: ImagePicker!
-         
-   private var model = Model()
+    var defaultPicture = #imageLiteral(resourceName: "Image")
+   private var cellViewModel = CellViewModel()
+    
     
     @IBOutlet weak var tableCellsView: UITableView!{
         didSet{
             
-            model.delegate = self
+            cellViewModel.delegate = self
             tableCellsView.delegate = self
             tableCellsView.dataSource = self
             
         }
     }
+ 
     
-    @IBAction func addPhotoNew(_ sender: UIButton) {
-        model.createCell(sender)
+    @IBAction func addPhotoNew(_ sender: UIButton) {    imagePicker.present(from: tableCellsView)
+            //model.createCell()
     }
+//    @IBAction func addPhotoNew(_ sender: UIButton) {
+//
+//
+//    }
 
     
     override func viewDidLoad() {
@@ -38,19 +45,6 @@ class ViewController: UIViewController {
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
     }
     
-
-//   private func makePhoto(){
-//        let isCameraAvailable = UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType(rawValue: 1)!)
-//        if isCameraAvailable == true {
-//            let whichTypeOfCamera = UIImagePickerController.availableMediaTypes(for: UIImagePickerController.SourceType(rawValue: 1)!)
-//            print(whichTypeOfCamera!)
-//            if whichTypeOfCamera?[0] == "public.image" {
-//
-//              //  UIImagePickerController.present(UIImagePickerController , _: animated:true ,completion:)
-//            }
-//        }
-//    }
-   
 }
 
 
@@ -60,16 +54,15 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate  {
   
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-     return   model.getCountOfRows()
+     return   cellViewModel.getCountOfRows()
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        guard let cell = tableView.dequeueReusableCell(withIdentifier: "photoCellIdentifier") as? TableViewCell
         else {return UITableViewCell()}
-        cell.cellLabel.text = model.cells[indexPath.row]
-        if (model.cellImage[0]==nil){
-            return cell}
-        cell.cellImageView.image = model.cellImage[indexPath.row]
+        cell.cellLabel.text = cellViewModel.getDate(for: indexPath)
+        cell.cellImageView.image = cellViewModel.getImage(for: indexPath)
         return cell
     }
     
@@ -85,9 +78,18 @@ extension ViewController: ModelDelegate {
 
 }
 extension ViewController: ImagePickerDelegate{
-func didSelect(image: UIImage) {
-      
-  }
+    func didSelect(image: UIImage?) {
+        if image == nil {
+            return
+        }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = Locale(identifier: "ru_RUS")
+        dateFormatter.setLocalizedDateFormatFromTemplate("dd-YYYY-MM")
+        cellViewModel.createCell(imageNew: image ?? defaultPicture, textNew: dateFormatter)
+        cellsDidUpdate()
+    }
 }
 
 
