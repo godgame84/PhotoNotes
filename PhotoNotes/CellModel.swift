@@ -11,13 +11,12 @@ import UIKit
 
 class Cell {
     var photo : UIImage
-    var date = DateFormatter()
-    init(newImage: UIImage, newDate: DateFormatter) {
-        date.dateStyle = .medium
-        date.timeStyle = .none
-        date.locale = Locale(identifier: "en_US")
+    var date : String
+    var address : String
+    init(newImage: UIImage, newDate: String, newAddress: String) {
         self.photo = newImage
         self.date = newDate
+        self.address = newAddress
     }
 }
 
