@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import CoreLocation
+import MapKit
 
 public protocol GeoLocationDelegate:class{
     func didselect(locatin:CLLocation)
@@ -17,13 +18,14 @@ public protocol GeoLocationDelegate:class{
 open class GeoLocation: NSObject {
     
     
+    var placeMark = MKPlacemark()
+    private var locationTuples: [(latitude: CLLocationDegrees?, longitude: CLLocationDegrees?)]!
     private let locationManager: CLLocationManager
     private weak var presentationControllerGeo: UIViewController?
     private weak var delegateGeo: GeoLocationDelegate?
     
     public init(delegate: GeoLocationDelegate, presentationController: UIViewController){
         self.locationManager = CLLocationManager()
-        
         super.init()
         
         self.presentationControllerGeo = presentationController
@@ -32,13 +34,11 @@ open class GeoLocation: NSObject {
         self.locationManager.delegate = self
         self.locationManager.allowsBackgroundLocationUpdates = false
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        
     }
     
     
-//    func setupManager(){
-//        self.locationManager.delegate = self
-//        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//    }
     
     func checkLocationEnabled(){
         if CLLocationManager.locationServicesEnabled() {
@@ -82,16 +82,45 @@ open class GeoLocation: NSObject {
         
         self.presentationControllerGeo?.present(alert, animated: true, completion: nil)
     }
+//    func formatadrress(placemark:CLPlacemark) -> String {
+//        return placemark.
+//    }
+    
+    public func startGeoLocationProccess() {
+        locationManager.startUpdatingLocation()
+    }
+    public func endGeoLocationProccess() {
+        locationManager.stopUpdatingLocation()
+    }
 }
 
 
 extension GeoLocation:CLLocationManagerDelegate{
     
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last?.coordinate{
-//            let region = MKCoordinateRegion(center: location, latitudinalMeters: 5000, longitudinalMeters: 5000)
-           // locationManager.region
+       
+//            CLGeocoder().reverseGeocodeLocation(locations.last!,
+//              completionHandler: {(placemarks:[CLPlacemark]?, error:Error?) -> Void in
+//              if let placemarks = placemarks {
+//                let placemark = placemarks[0]
+//                self.locationTuples[0].mapItem = MKMapItem(placemark:
+//                MKPlacemark(coordinate: placemark.location!.coordinate,
+//                            addressDictionary: placemark.name as! [String:AnyObject]?))
+//              }
+//            })
+        
+        if let location = locations.first{
+            self.locationTuples.append((location.coordinate.latitude, location.coordinate.longitude))
         }
+        CLGeocoder().reverseGeocodeLocation(locations.last!, completionHandler: {(placemarks:[CLPlacemark]?, error: Error?) -> Void in
+            if let placemarks = placemarks{
+                let placemark = placemarks[0]
+                self.placeMark = MKPlacemark(coordinate: placemark.location!.coordinate)
+                print(placemark.thoroughfare ?? "a")
+            }
+            
+        })
+        
     }
     public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         checkAutorization()

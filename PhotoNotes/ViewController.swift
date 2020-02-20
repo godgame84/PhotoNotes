@@ -14,7 +14,7 @@ import MapKit
 class ViewController: UIViewController{
     // - MARK: image controller
     
- 
+    var geoLocation = GeoLocation!
     var imagePicker: ImagePicker!
     var defaultPicture = #imageLiteral(resourceName: "Image")
     private var cellViewModel = CellViewModel()
@@ -31,7 +31,9 @@ class ViewController: UIViewController{
  
     
     @IBAction func addPhotoNew(_ sender: UIButton) {
+        
         imagePicker.present(from: tableCellsView)
+        geoLocation.
             //model.createCell()
     }
 //    @IBAction func addPhotoNew(_ sender: UIButton) {
@@ -95,6 +97,12 @@ extension ViewController: ImagePickerDelegate{
         dateFormatter.locale = Locale(identifier: "ru_RUS")
         dateFormatter.setLocalizedDateFormatFromTemplate("dd-YYYY-MM")
         cellViewModel.createCell(imageNew: image ?? defaultPicture, textNew: dateFormatter.string(from: Date()),  realAddress: "dad")
+    }
+}
+
+extension ViewController: GeoLocationDelegate{
+    func didselect(locatin: CLLocation) {
+        
     }
 }
 
