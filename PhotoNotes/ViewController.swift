@@ -97,8 +97,8 @@ extension ViewController: ImagePickerDelegate{
         dateFormatter.timeStyle = .none
         dateFormatter.locale = Locale(identifier: "ru_RUS")
         dateFormatter.setLocalizedDateFormatFromTemplate("dd-YYYY-MM")
-        //geoLocation.
-        cellViewModel.createCell(imageNew: image ?? defaultPicture, textNew: dateFormatter.string(from: Date()),  realAddress: "dad")
+        
+        cellViewModel.createCell(imageNew: image ?? defaultPicture, textNew: dateFormatter.string(from: Date()),  realAddress: geoLocation.formatadrress())
     }
 }
 

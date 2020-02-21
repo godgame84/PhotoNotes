@@ -19,7 +19,7 @@ open class GeoLocation: NSObject {
     
     
     var placeMark = MKPlacemark()
-    private var locationTuples: [(latitude: CLLocationDegrees?, longitude: CLLocationDegrees?)]!
+    private var finalLocatio = "d"
     private let locationManager: CLLocationManager
     private weak var presentationControllerGeo: UIViewController?
     private weak var delegateGeo: GeoLocationDelegate?
@@ -82,9 +82,9 @@ open class GeoLocation: NSObject {
         
         self.presentationControllerGeo?.present(alert, animated: true, completion: nil)
     }
-//    func formatadrress(placemark:CLPlacemark) -> String {
-//        return placemark.
-//    }
+    func formatadrress() -> String {
+        return finalLocatio
+    }
     
     public func startGeoLocationProccess() {
         locationManager.startUpdatingLocation()
@@ -115,8 +115,9 @@ extension GeoLocation:CLLocationManagerDelegate{
         CLGeocoder().reverseGeocodeLocation(locations.last!, completionHandler: {(placemarks:[CLPlacemark]?, error: Error?) -> Void in
             if let placemarks = placemarks{
                 let placemark = placemarks[0]
-                self.placeMark = MKPlacemark(coordinate: placemark.location!.coordinate)
+                self.finalLocatio = (placemark.thoroughfare ?? "-") + " " + (placemark.subThoroughfare ?? "-")
                 print(placemark.thoroughfare ?? "aasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd")
+                print(placemark.subThoroughfare ?? "a")
             }
             
         })
