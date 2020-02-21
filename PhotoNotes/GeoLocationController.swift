@@ -109,14 +109,14 @@ extension GeoLocation:CLLocationManagerDelegate{
 //              }
 //            })
         
-        if let location = locations.first{
-            self.locationTuples.append((location.coordinate.latitude, location.coordinate.longitude))
-        }
+//        if let location = locations.first{
+//            self.locationTuples.append((location.coordinate.latitude, location.coordinate.longitude))
+//        }
         CLGeocoder().reverseGeocodeLocation(locations.last!, completionHandler: {(placemarks:[CLPlacemark]?, error: Error?) -> Void in
             if let placemarks = placemarks{
                 let placemark = placemarks[0]
                 self.placeMark = MKPlacemark(coordinate: placemark.location!.coordinate)
-                print(placemark.thoroughfare ?? "a")
+                print(placemark.thoroughfare ?? "aasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd")
             }
             
         })
@@ -124,6 +124,9 @@ extension GeoLocation:CLLocationManagerDelegate{
     }
     public func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         checkAutorization()
+    }
+    public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    print("error:: \(error.localizedDescription)")
     }
     
 }
