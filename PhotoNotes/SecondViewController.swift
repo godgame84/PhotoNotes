@@ -14,16 +14,33 @@ protocol SendTextProtocol: class{
 }
 
 class SecondViewController: UIViewController {
-
+    private var indexPath:IndexPath?
+    private var cellViewModel = CellViewModel()
+    
     override func viewDidLoad() {
+        let firstVC = ViewController()
+        firstVC.sendDescrDelegate = self
+        
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
     weak var sendTextDelegate:SendTextProtocol?
     
+    @IBAction func backButton(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func saveButton(_ sender: UIButton) {
+        sendTextDelegate?.didUpdateWithText(text: textView.text)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBOutlet weak var textView: UITextView!
+    
+//    func make() {
+//        textView.
+//    }
     
     /*
     // MARK: - Navigation
@@ -35,4 +52,13 @@ class SecondViewController: UIViewController {
     }
     */
 
+}
+
+extension SecondViewController:sendDescriptProtocol{
+    func senDescr(Descr: String, nomerStroki: IndexPath) {
+        textView.text! = Descr
+        indexPath = nomerStroki
+    }
+    
+    
 }

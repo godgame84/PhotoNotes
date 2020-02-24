@@ -102,9 +102,7 @@ extension GeoLocation:CLLocationManagerDelegate{
         CLGeocoder().reverseGeocodeLocation(locations.last!, completionHandler: {(placemarks:[CLPlacemark]?, error: Error?) -> Void in
             if let placemarks = placemarks{
                 let placemark = placemarks[0]
-                self.finalLocatio = (placemark.thoroughfare ?? "-") + " " + (placemark.subThoroughfare ?? "-")
-                print(placemark.thoroughfare ?? "aasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd")
-                print(placemark.subThoroughfare ?? "a")
+                self.finalLocatio = (placemark.name ?? "-") //+ " " + (placemark.subThoroughfare ?? "-")
             }
             
         })

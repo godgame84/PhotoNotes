@@ -11,6 +11,10 @@
 import UIKit
 import MapKit
 
+protocol sendDescriptProtocol:class {
+    func senDescr(Descr:String,nomerStroki:IndexPath) 
+}
+
 class ViewController: UIViewController{
     // - MARK: image controller
     
@@ -18,7 +22,10 @@ class ViewController: UIViewController{
     var imagePicker: ImagePicker!
     var defaultPicture = #imageLiteral(resourceName: "Image")
     private var cellViewModel = CellViewModel()
-    var textFromSecondVC:String? = "Press to edit description"
+    var textFromSecondVC:String = "Press to edit description"
+    var higlightenIndex: IndexPath?
+    
+    weak var sendDescrDelegate: sendDescriptProtocol?
     
     @IBOutlet weak var tableCellsView: UITableView!{
         didSet{
@@ -34,6 +41,7 @@ class ViewController: UIViewController{
  
     
     @IBAction func addPhotoNew(_ sender: UIButton) {
+        geoLocation.checkAutorization()
         geoLocation.startGeoLocationProccess()
         imagePicker.present(from: tableCellsView)
         geoLocation.endGeoLocationProccess()
@@ -77,22 +85,23 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate  {
         cell.cellLabel.text = cellViewModel.getDate(for: indexPath)
         cell.cellImageView.image = cellViewModel.getImage(for: indexPath)
         cell.cellGeo.text = cellViewModel.getAddress(for: indexPath)
+        cell.cellDescription.text=cellViewModel.getDescript(for: indexPath)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        guard let cell = tableView.cellForRow(at: indexPath) as? TableViewCell else {
-//            return
-//        }
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
         guard let secondViewController = storyboard.instantiateViewController(withIdentifier: String(describing: SecondViewController.self)) as? SecondViewController else {
             return
         }
         secondViewController.sendTextDelegate = self
+        higlightenIndex=indexPath
+        print(indexPath)
         
         self.present(secondViewController, animated: true, completion: nil)
+        sendDescrDelegate?.senDescr(Descr: cellViewModel.getDescript(for: indexPath), nomerStroki: indexPath)
     }
+    
     
     
 }
@@ -100,7 +109,11 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate  {
 
 extension ViewController:SendTextProtocol{
     func didUpdateWithText(text: String?) {
-        textFromSecondVC=text;
+        if text == nil {
+            return
+        }
+        print(text!)
+        cellViewModel.updateDescript(newDescription: textFromSecondVC)
     }
     
     
@@ -109,6 +122,7 @@ extension ViewController: ModelDelegate {
     
     func cellsDidUpdate() {
         tableCellsView.reloadData()
+        
     }
 
 }
@@ -122,14 +136,15 @@ extension ViewController: ImagePickerDelegate{
         dateFormatter.timeStyle = .none
         dateFormatter.locale = Locale(identifier: "ru_RUS")
         dateFormatter.setLocalizedDateFormatFromTemplate("dd-YYYY-MM")
-        
-        cellViewModel.createCell(imageNew: image ?? defaultPicture, textNew: dateFormatter.string(from: Date()),  realAddress: geoLocation.formatadrress())
+        cellViewModel.createCell(imageNew: image ?? defaultPicture, textNew: dateFormatter.string(from: Date()),  realAddress: geoLocation.formatadrress(), realDescript: textFromSecondVC)
+   
     }
 }
 
 extension ViewController: GeoLocationDelegate{
     func didselect(locatin: CLLocation) {
-        
+        print(locatin)
+        print("aasdjkasjdkasjdlaslkdjaskdjlaskjdlkajsdkljaslkdja")
     }
 }
 

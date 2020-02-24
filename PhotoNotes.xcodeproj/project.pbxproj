@@ -69,15 +69,15 @@
 				23B44B03237EA96000FDCEC8 /* TableViewCell.swift */,
 				238F4AB52334CF48000BE1EB /* ViewController.swift */,
 				23EEE5E723F9C77600C3E6BA /* SecondViewController.swift */,
-				23EEE5E923FC776D00C3E6BA /* GeoLocationController.swift */,
-				231EF78E23C4E77C00FA4190 /* ImagePicker.swift */,
+				238F4AC52334D61A000BE1EB /* CellViewModel.swift */,
 				23B9115623953E1D00BB251B /* CellModel.swift */,
 				238F4AB72334CF48000BE1EB /* Main.storyboard */,
-				238F4AC52334D61A000BE1EB /* CellViewModel.swift */,
-				238F4ABA2334CF49000BE1EB /* Assets.xcassets */,
-				238F4ABF2334CF49000BE1EB /* Info.plist */,
 				238F4AB32334CF48000BE1EB /* AppDelegate.swift */,
+				23EEE5E923FC776D00C3E6BA /* GeoLocationController.swift */,
+				231EF78E23C4E77C00FA4190 /* ImagePicker.swift */,
 				238F4ABC2334CF49000BE1EB /* LaunchScreen.storyboard */,
+				238F4ABF2334CF49000BE1EB /* Info.plist */,
+				238F4ABA2334CF49000BE1EB /* Assets.xcassets */,
 			);
 			path = PhotoNotes;
 			sourceTree = "<group>";

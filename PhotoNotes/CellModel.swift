@@ -13,10 +13,12 @@ class Cell {
     var photo : UIImage
     var date : String
     var address : String
-    init(newImage: UIImage, newDate: String, newAddress: String) {
+    var descript: String
+    init(newImage: UIImage, newDate: String, newAddress: String, newDescript:String) {
         self.photo = newImage
         self.date = newDate
         self.address = newAddress
+        self.descript=newDescript
     }
 }
 

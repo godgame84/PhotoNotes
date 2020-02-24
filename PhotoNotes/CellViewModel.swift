@@ -11,12 +11,6 @@ protocol ModelDelegate: class {
     func cellsDidUpdate()
 }
 
-
-
-//protocol ModelProtocol: class {
-//    var cells: String { get set }
-//}
-
 import UIKit
 import Foundation
 import CoreLocation
@@ -26,10 +20,14 @@ class CellViewModel {
     weak var delegate:ModelDelegate?
     
     
-    func createCell (imageNew: UIImage, textNew: String, realAddress:String) {
+    func createCell (imageNew: UIImage, textNew: String, realAddress:String, realDescript:String) {
     
-        cells.append(Cell(newImage: imageNew, newDate: textNew, newAddress: realAddress))
+        cells.append(Cell(newImage: imageNew, newDate: textNew, newAddress: realAddress,newDescript: realDescript))
         delegate?.cellsDidUpdate()
+    }
+    
+    func updateDescript(newDescription:String) {
+        
     }
     
     func getDate( for indexPath: IndexPath) -> String  {
@@ -45,6 +43,10 @@ class CellViewModel {
         let index = indexPath.row
         return cells[index].address
     }
+     func getDescript(for indexPath: IndexPath) -> String {
+           let index = indexPath.row
+           return cells[index].descript
+       }
     
     func getCountOfRows() -> Int {
         return cells.count
