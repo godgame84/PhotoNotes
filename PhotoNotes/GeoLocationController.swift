@@ -87,7 +87,7 @@ open class GeoLocation: NSObject {
     }
     
     public func startGeoLocationProccess() {
-        locationManager.startUpdatingLocation()
+        locationManager.requestLocation()
     }
     public func endGeoLocationProccess() {
         locationManager.stopUpdatingLocation()
@@ -99,19 +99,6 @@ extension GeoLocation:CLLocationManagerDelegate{
     
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
        
-//            CLGeocoder().reverseGeocodeLocation(locations.last!,
-//              completionHandler: {(placemarks:[CLPlacemark]?, error:Error?) -> Void in
-//              if let placemarks = placemarks {
-//                let placemark = placemarks[0]
-//                self.locationTuples[0].mapItem = MKMapItem(placemark:
-//                MKPlacemark(coordinate: placemark.location!.coordinate,
-//                            addressDictionary: placemark.name as! [String:AnyObject]?))
-//              }
-//            })
-        
-//        if let location = locations.first{
-//            self.locationTuples.append((location.coordinate.latitude, location.coordinate.longitude))
-//        }
         CLGeocoder().reverseGeocodeLocation(locations.last!, completionHandler: {(placemarks:[CLPlacemark]?, error: Error?) -> Void in
             if let placemarks = placemarks{
                 let placemark = placemarks[0]

@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import MapKit
+
+protocol SendTextProtocol: class{
+    func didUpdateWithText (text:String?)
+}
 
 class SecondViewController: UIViewController {
 
@@ -16,7 +21,10 @@ class SecondViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    weak var sendTextDelegate:SendTextProtocol?
+    
+    @IBOutlet weak var textView: UITextView!
+    
     /*
     // MARK: - Navigation
 

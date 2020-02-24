@@ -18,6 +18,7 @@ class ViewController: UIViewController{
     var imagePicker: ImagePicker!
     var defaultPicture = #imageLiteral(resourceName: "Image")
     private var cellViewModel = CellViewModel()
+    var textFromSecondVC:String? = "Press to edit description"
     
     @IBOutlet weak var tableCellsView: UITableView!{
         didSet{
@@ -25,6 +26,8 @@ class ViewController: UIViewController{
             cellViewModel.delegate = self
             tableCellsView.delegate = self
             tableCellsView.dataSource = self
+            tableCellsView.rowHeight=UITableView.automaticDimension
+            tableCellsView.estimatedRowHeight=600
             
         }
     }
@@ -70,16 +73,38 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate  {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        guard let cell = tableView.dequeueReusableCell(withIdentifier: "photoCellIdentifier") as? TableViewCell
         else {return UITableViewCell()}
+        
         cell.cellLabel.text = cellViewModel.getDate(for: indexPath)
         cell.cellImageView.image = cellViewModel.getImage(for: indexPath)
         cell.cellGeo.text = cellViewModel.getAddress(for: indexPath)
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        guard let cell = tableView.cellForRow(at: indexPath) as? TableViewCell else {
+//            return
+//        }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        guard let secondViewController = storyboard.instantiateViewController(withIdentifier: String(describing: SecondViewController.self)) as? SecondViewController else {
+            return
+        }
+        secondViewController.sendTextDelegate = self
+        
+        self.present(secondViewController, animated: true, completion: nil)
+    }
+    
     
 }
 
 
+extension ViewController:SendTextProtocol{
+    func didUpdateWithText(text: String?) {
+        textFromSecondVC=text;
+    }
+    
+    
+}
 extension ViewController: ModelDelegate {
     
     func cellsDidUpdate() {

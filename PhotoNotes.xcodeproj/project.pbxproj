@@ -66,9 +66,9 @@
 		238F4AB22334CF48000BE1EB /* PhotoNotes */ = {
 			isa = PBXGroup;
 			children = (
-				23EEE5E723F9C77600C3E6BA /* SecondViewController.swift */,
 				23B44B03237EA96000FDCEC8 /* TableViewCell.swift */,
 				238F4AB52334CF48000BE1EB /* ViewController.swift */,
+				23EEE5E723F9C77600C3E6BA /* SecondViewController.swift */,
 				23EEE5E923FC776D00C3E6BA /* GeoLocationController.swift */,
 				231EF78E23C4E77C00FA4190 /* ImagePicker.swift */,
 				23B9115623953E1D00BB251B /* CellModel.swift */,
