@@ -10,6 +10,12 @@ import UIKit
 
 class TableViewCell: UITableViewCell {
     @IBOutlet weak var cellLabel: UILabel!
+
+    @IBOutlet weak var cellImageView: UIImageView!
+    
+    @IBOutlet weak var cellGeo: UILabel!
+    
+    @IBOutlet weak var cellDescription: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
