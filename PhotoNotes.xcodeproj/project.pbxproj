@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		231EF78F23C4E77C00FA4190 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231EF78E23C4E77C00FA4190 /* ImagePicker.swift */; };
+		234E724A24050AC4005DF650 /* CellViewModelSecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E724924050AC4005DF650 /* CellViewModelSecondVC.swift */; };
 		238F4AB42334CF48000BE1EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238F4AB32334CF48000BE1EB /* AppDelegate.swift */; };
 		238F4AB62334CF48000BE1EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238F4AB52334CF48000BE1EB /* ViewController.swift */; };
 		238F4AB92334CF48000BE1EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 238F4AB72334CF48000BE1EB /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		231EF78E23C4E77C00FA4190 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		234E724924050AC4005DF650 /* CellViewModelSecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellViewModelSecondVC.swift; sourceTree = "<group>"; };
 		238F4AB02334CF48000BE1EB /* PhotoNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		238F4AB32334CF48000BE1EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		238F4AB52334CF48000BE1EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,9 +70,10 @@
 			children = (
 				23B44B03237EA96000FDCEC8 /* TableViewCell.swift */,
 				238F4AB52334CF48000BE1EB /* ViewController.swift */,
-				23EEE5E723F9C77600C3E6BA /* SecondViewController.swift */,
 				238F4AC52334D61A000BE1EB /* CellViewModel.swift */,
 				23B9115623953E1D00BB251B /* CellModel.swift */,
+				23EEE5E723F9C77600C3E6BA /* SecondViewController.swift */,
+				234E724924050AC4005DF650 /* CellViewModelSecondVC.swift */,
 				238F4AB72334CF48000BE1EB /* Main.storyboard */,
 				238F4AB32334CF48000BE1EB /* AppDelegate.swift */,
 				23EEE5E923FC776D00C3E6BA /* GeoLocationController.swift */,
@@ -159,6 +162,7 @@
 				231EF78F23C4E77C00FA4190 /* ImagePicker.swift in Sources */,
 				23EEE5E823F9C77600C3E6BA /* SecondViewController.swift in Sources */,
 				238F4AB62334CF48000BE1EB /* ViewController.swift in Sources */,
+				234E724A24050AC4005DF650 /* CellViewModelSecondVC.swift in Sources */,
 				23EEE5EA23FC776D00C3E6BA /* GeoLocationController.swift in Sources */,
 				238F4AB42334CF48000BE1EB /* AppDelegate.swift in Sources */,
 			);

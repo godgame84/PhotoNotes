@@ -18,7 +18,8 @@ public protocol GeoLocationDelegate:class{
 open class GeoLocation: NSObject {
     
     
-    var placeMark = MKPlacemark()
+   // var placeMark = MKPlacemark()
+    private var finalCoordinate = CLLocationCoordinate2D(latitude: 5000, longitude: 5000)
     private var finalLocatio = "d"
     private let locationManager: CLLocationManager
     private weak var presentationControllerGeo: UIViewController?
@@ -82,8 +83,12 @@ open class GeoLocation: NSObject {
         
         self.presentationControllerGeo?.present(alert, animated: true, completion: nil)
     }
-    func formatadrress() -> String {
+    func formAddres() -> String {
         return finalLocatio
+    }
+    
+    func formCoordinates() ->CLLocationCoordinate2D{
+        return finalCoordinate
     }
     
     public func startGeoLocationProccess() {
@@ -102,7 +107,12 @@ extension GeoLocation:CLLocationManagerDelegate{
         CLGeocoder().reverseGeocodeLocation(locations.last!, completionHandler: {(placemarks:[CLPlacemark]?, error: Error?) -> Void in
             if let placemarks = placemarks{
                 let placemark = placemarks[0]
-                self.finalLocatio = (placemark.name ?? "-") //+ " " + (placemark.subThoroughfare ?? "-")
+                self.finalLocatio = (placemark.name ?? "-")
+                if placemark.location?.coordinate != nil {
+                    self.finalCoordinate = placemark.location!.coordinate
+                }
+                
+                
             }
             
         })

@@ -14,15 +14,16 @@ protocol ModelDelegate: class {
 import UIKit
 import Foundation
 import CoreLocation
+import MapKit
 
 class CellViewModel {
     private var cells = [Cell]()
     weak var delegate:ModelDelegate?
     
     
-    func createCell (imageNew: UIImage, textNew: String, realAddress:String, realDescript:String) {
+    func createCell (imageNew: UIImage, textNew: String, realAddress:String, realDescript:String, realMapCoord:CLLocationCoordinate2D) {
     
-        cells.append(Cell(newImage: imageNew, newDate: textNew, newAddress: realAddress,newDescript: realDescript))
+        cells.append(Cell(newImage: imageNew, newDate: textNew, newAddress: realAddress,newDescript: realDescript, newCoord: realMapCoord))
         delegate?.cellsDidUpdate()
     }
     
@@ -51,7 +52,10 @@ class CellViewModel {
     func getCountOfRows() -> Int {
         return cells.count
     }
-
+    func initCellSecondVC(for indexPath:IndexPath) ->CellViewModelSecondVC  {
+        let index = indexPath.row
+        return CellViewModelSecondVC(newDescr: cells[index].descript, newImage: cells[index].photo, newIndexPath: indexPath, newMapCoordinates: cells[index].MapCoord)
+    }
    
   }
 

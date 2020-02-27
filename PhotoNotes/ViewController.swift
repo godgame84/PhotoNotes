@@ -11,10 +11,6 @@
 import UIKit
 import MapKit
 
-protocol sendDescriptProtocol:class {
-    func senDescr(Descr:String,nomerStroki:IndexPath) 
-}
-
 class ViewController: UIViewController{
     // - MARK: image controller
     
@@ -25,7 +21,6 @@ class ViewController: UIViewController{
     var textFromSecondVC:String = "Press to edit description"
     var higlightenIndex: IndexPath?
     
-    weak var sendDescrDelegate: sendDescriptProtocol?
     
     @IBOutlet weak var tableCellsView: UITableView!{
         didSet{
@@ -35,6 +30,7 @@ class ViewController: UIViewController{
             tableCellsView.dataSource = self
             tableCellsView.rowHeight=UITableView.automaticDimension
             tableCellsView.estimatedRowHeight=600
+            
             
         }
     }
@@ -55,6 +51,7 @@ class ViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         self.geoLocation = GeoLocation(delegate: self, presentationController: self)
     }
@@ -94,12 +91,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate  {
         guard let secondViewController = storyboard.instantiateViewController(withIdentifier: String(describing: SecondViewController.self)) as? SecondViewController else {
             return
         }
-        secondViewController.sendTextDelegate = self
-        higlightenIndex=indexPath
-        print(indexPath)
-        
-        self.present(secondViewController, animated: true, completion: nil)
-        sendDescrDelegate?.senDescr(Descr: cellViewModel.getDescript(for: indexPath), nomerStroki: indexPath)
+        self.navigationController?.pushViewController(secondViewController, animated: true)
+        secondViewController.setCellSecondVC(cellFromFirstVC: cellViewModel.initCellSecondVC(for: indexPath)) 
     }
     
     
@@ -136,7 +129,7 @@ extension ViewController: ImagePickerDelegate{
         dateFormatter.timeStyle = .none
         dateFormatter.locale = Locale(identifier: "ru_RUS")
         dateFormatter.setLocalizedDateFormatFromTemplate("dd-YYYY-MM")
-        cellViewModel.createCell(imageNew: image ?? defaultPicture, textNew: dateFormatter.string(from: Date()),  realAddress: geoLocation.formatadrress(), realDescript: textFromSecondVC)
+        cellViewModel.createCell(imageNew: image ?? defaultPicture, textNew: dateFormatter.string(from: Date()),  realAddress: geoLocation.formAddres(), realDescript: textFromSecondVC, realMapCoord: geoLocation.formCoordinates())
    
     }
 }

@@ -14,26 +14,30 @@ protocol SendTextProtocol: class{
 }
 
 class SecondViewController: UIViewController {
+    
     private var indexPath:IndexPath?
-    private var cellViewModel = CellViewModel()
+    private var cellViewModelSecondVC: CellViewModelSecondVC?
     
     override func viewDidLoad() {
-        let firstVC = ViewController()
-        firstVC.sendDescrDelegate = self
-        
         super.viewDidLoad()
+        self.navigationController?.navigationBar.barStyle = .black
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveButton))
         
+        textView.text = cellViewModelSecondVC?.getDescription() ?? "Default Text"
         // Do any additional setup after loading the view.
     }
     
     weak var sendTextDelegate:SendTextProtocol?
     
-    @IBAction func backButton(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    @IBAction func saveButton(_ sender: UIButton) {
+    
+    @objc func saveButton() {
         sendTextDelegate?.didUpdateWithText(text: textView.text)
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.navigationBar.barStyle = .default
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func setCellSecondVC(cellFromFirstVC: CellViewModelSecondVC) {
+        cellViewModelSecondVC = cellFromFirstVC
     }
     
     @IBOutlet weak var textView: UITextView!
@@ -54,11 +58,4 @@ class SecondViewController: UIViewController {
 
 }
 
-extension SecondViewController:sendDescriptProtocol{
-    func senDescr(Descr: String, nomerStroki: IndexPath) {
-        textView.text! = Descr
-        indexPath = nomerStroki
-    }
-    
-    
-}
+
