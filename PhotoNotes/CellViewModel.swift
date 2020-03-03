@@ -23,7 +23,7 @@ class CellViewModel {
     
     func createCell (imageNew: UIImage, textNew: String, realAddress:String, realDescript:String, realMapCoord:CLLocationCoordinate2D) {
     
-        cells.append(Cell(newImage: imageNew, newDate: textNew, newAddress: realAddress,newDescript: realDescript, newCoord: realMapCoord))
+        cells.append(Cell(newImage: imageNew, newDate: textNew, newAddress: realAddress,newDescript: realDescript, newLatitude: realMapCoord.latitude, newLongitude: realMapCoord.longitude ))
         delegate?.cellsDidUpdate()
     }
     
@@ -52,9 +52,9 @@ class CellViewModel {
     func getCountOfRows() -> Int {
         return cells.count
     }
-    func initCellSecondVC(for indexPath:IndexPath) ->CellViewModelSecondVC  {
+    func createDetailViewModel(for indexPath:IndexPath) ->CellViewModelSecondVC  {
         let index = indexPath.row
-        return CellViewModelSecondVC(newDescr: cells[index].descript, newImage: cells[index].photo, newIndexPath: indexPath, newMapCoordinates: cells[index].MapCoord)
+        return CellViewModelSecondVC(newDescr: cells[index].descript, newImage: cells[index].photo, newIndexPath: indexPath, newMapCoordinates: CLLocationCoordinate2D(latitude: cells[index].MapCoord.latitude, longitude: cells[index].MapCoord.longitude) )
     }
    
   }

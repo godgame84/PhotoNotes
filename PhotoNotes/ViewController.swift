@@ -12,15 +12,19 @@ import UIKit
 import MapKit
 
 class ViewController: UIViewController{
-    // - MARK: image controller
+    // - MARK: Public Properties
     
     var geoLocation: GeoLocation!
     var imagePicker: ImagePicker!
     var defaultPicture = #imageLiteral(resourceName: "Image")
-    private var cellViewModel = CellViewModel()
     var textFromSecondVC:String = "Press to edit description"
     var higlightenIndex: IndexPath?
     
+    // - MARK: Private Properties
+    
+    private var cellViewModel = CellViewModel()
+    
+    // - MARK: IBOutlets
     
     @IBOutlet weak var tableCellsView: UITableView!{
         didSet{
@@ -35,6 +39,7 @@ class ViewController: UIViewController{
         }
     }
  
+    // - MARK: IBActions
     
     @IBAction func addPhotoNew(_ sender: UIButton) {
         geoLocation.checkAutorization()
@@ -43,62 +48,25 @@ class ViewController: UIViewController{
         geoLocation.endGeoLocationProccess()
             //model.createCell()
     }
-//    @IBAction func addPhotoNew(_ sender: UIButton) {
-//
-//
-//    }
 
+    // - MARK: View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         self.geoLocation = GeoLocation(delegate: self, presentationController: self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.barStyle = .default
         super.viewDidAppear(animated)
-        //checkLocationEnabled()
     }
 
     
 }
 
 
-// - MARK: public methods
-
-extension ViewController: UITableViewDataSource, UITableViewDelegate  {
-  
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-     return   cellViewModel.getCountOfRows()
-    }
-    
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       guard let cell = tableView.dequeueReusableCell(withIdentifier: "photoCellIdentifier") as? TableViewCell
-        else {return UITableViewCell()}
-        
-        cell.cellLabel.text = cellViewModel.getDate(for: indexPath)
-        cell.cellImageView.image = cellViewModel.getImage(for: indexPath)
-        cell.cellGeo.text = cellViewModel.getAddress(for: indexPath)
-        cell.cellDescription.text=cellViewModel.getDescript(for: indexPath)
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let secondViewController = storyboard.instantiateViewController(withIdentifier: String(describing: SecondViewController.self)) as? SecondViewController else {
-            return
-        }
-        self.navigationController?.pushViewController(secondViewController, animated: true)
-        secondViewController.setCellSecondVC(cellFromFirstVC: cellViewModel.initCellSecondVC(for: indexPath)) 
-    }
-    
-    
-    
-}
-
+// - MARK: Public methods
 
 extension ViewController:SendTextProtocol{
     func didUpdateWithText(text: String?) {
@@ -140,6 +108,42 @@ extension ViewController: GeoLocationDelegate{
         print("aasdjkasjdkasjdlaslkdjaskdjlaskjdlkajsdkljaslkdja")
     }
 }
+
+    // -MARK: UITableViewDelegate, UITableViewDataSource
+
+extension ViewController: UITableViewDataSource, UITableViewDelegate  {
+  
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     return   cellViewModel.getCountOfRows()
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       guard let cell = tableView.dequeueReusableCell(withIdentifier: "photoCellIdentifier") as? TableViewCell
+        else {return UITableViewCell()}
+        
+        cell.cellLabel.text = cellViewModel.getDate(for: indexPath)
+        cell.cellImageView.image = cellViewModel.getImage(for: indexPath)
+        cell.cellGeo.text = cellViewModel.getAddress(for: indexPath)
+        cell.cellDescription.text=cellViewModel.getDescript(for: indexPath)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let secondViewController = storyboard.instantiateViewController(withIdentifier: String(describing: SecondViewController.self)) as? SecondViewController else {
+            return
+        }
+        self.navigationController?.pushViewController(secondViewController, animated: true)
+        secondViewController.setCellSecondVC(cellFromFirstVC: cellViewModel.createDetailViewModel(for: indexPath)) 
+    }
+    
+    
+    
+}
+
+
 
 
 

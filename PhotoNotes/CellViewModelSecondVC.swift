@@ -11,27 +11,25 @@ import MapKit
 
 class CellViewModelSecondVC {
     
-    var cell: Cell
-    var indexPath:IndexPath
+    let cell: Cell
+    let indexPath:IndexPath
     
   init(newDescr: String, newImage: UIImage, newIndexPath:IndexPath, newMapCoordinates:CLLocationCoordinate2D){
-    cell = (Cell(newImage: newImage, newDate: "", newAddress: "", newDescript: newDescr, newCoord: newMapCoordinates))
+    cell = (Cell(newImage: newImage, newDate: "", newAddress: "", newDescript: newDescr, newLatitude: newMapCoordinates.latitude, newLongitude: newMapCoordinates.longitude))
     indexPath=newIndexPath
     }
     
-    func getDescription() -> String  {
-
+    var getDescription: String  {
         return cell.descript
     }
 
-    func getImage() -> UIImage  {
+    var getImage: UIImage  {
         return cell.photo
       }
-    func getIndexPath() -> IndexPath {
- 
+    var getIndexPath: IndexPath {
         return indexPath
     }
-     func getMapCoord() -> CLLocationCoordinate2D {
-        return cell.MapCoord
+    var getMapCoord: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: cell.MapCoord.latitude, longitude: cell.MapCoord.longitude)
        }
 }

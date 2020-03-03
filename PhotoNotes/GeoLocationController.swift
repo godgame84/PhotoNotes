@@ -19,7 +19,7 @@ open class GeoLocation: NSObject {
     
     
    // var placeMark = MKPlacemark()
-    private var finalCoordinate = CLLocationCoordinate2D(latitude: 5000, longitude: 5000)
+    private var finalCoordinate = CLLocationCoordinate2D(latitude: 21.282778, longitude: -157.82944)
     private var finalLocatio = "d"
     private let locationManager: CLLocationManager
     private weak var presentationControllerGeo: UIViewController?

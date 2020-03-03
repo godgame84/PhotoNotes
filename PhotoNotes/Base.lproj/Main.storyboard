@@ -162,6 +162,7 @@
                         <viewLayoutGuide key="safeArea" id="RcE-YM-3lJ"/>
                     </view>
                     <connections>
+                        <outlet property="mapView" destination="n7e-47-FK7" id="S5m-B6-HYc"/>
                         <outlet property="textView" destination="XY4-Qx-mfu" id="Pke-3D-YgV"/>
                     </connections>
                 </viewController>

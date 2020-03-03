@@ -17,15 +17,61 @@ class SecondViewController: UIViewController {
     
     private var indexPath:IndexPath?
     private var cellViewModelSecondVC: CellViewModelSecondVC?
+    private let regionRadius: CLLocationDistance = 1000
+    
+    //private let index: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let navLabel = UILabel()
         self.navigationController?.navigationBar.barStyle = .black
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveButton))
         
-        textView.text = cellViewModelSecondVC?.getDescription() ?? "Default Text"
+        let firstPartOfTitleCell = "Cell "
+        let secondPartOfTitleNumber = "number "
+              
+        let attributeForCell: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.green,
+            .font: UIFont(name: "SFProDisplay-Regular" , size: 32) ?? UIFont.systemFont(ofSize: 22)
+            
+        ]
+        let attributeForNumber: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.red,
+            .font: UIFont(name: "SFProDisplay-Regular" , size: 15) ?? UIFont.systemFont(ofSize: 22)
+        ]
+        let attributeForIndex: [NSAttributedString.Key: Any] = [
+            .foregroundColor: UIColor.white,
+            .font: UIFont(name: "SFProDisplay-Regular" , size: 22) ?? UIFont.systemFont(ofSize: 22),]
+        
+        let firstPartAfterChangeCell = NSMutableAttributedString(string: firstPartOfTitleCell, attributes: attributeForCell)
+        let secondPartAfterChangeNumber = NSAttributedString(string: secondPartOfTitleNumber, attributes: attributeForNumber)
+        let thiredPartafterChangeIndex = NSAttributedString(string: "\(((cellViewModelSecondVC?.getIndexPath.row ?? 0) + 1))", attributes: attributeForIndex)
+        
+        
+        let finalString:NSMutableAttributedString = firstPartAfterChangeCell
+        finalString.append(secondPartAfterChangeNumber)
+        finalString.append(thiredPartafterChangeIndex)
+        
+        navLabel.attributedText = finalString
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveButton))
+        //navigationItem.title = "Cell number \(((cellViewModelSecondVC?.getIndexPath.row ?? 0) + 1))"
+        navigationItem.titleView = navLabel
+       
+        
+       
+        
+        self.navigationController?.navigationBar.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    
+        
+        textView.text = cellViewModelSecondVC?.getDescription ?? "Default Text"
+        
+        if cellViewModelSecondVC?.getMapCoord != nil{
+            mapView.setCenter((cellViewModelSecondVC?.getMapCoord)!, animated: true)
+            centerMapOnLocation(location: (cellViewModelSecondVC?.getMapCoord)!)
+        }
+        
         // Do any additional setup after loading the view.
     }
+    
     
     weak var sendTextDelegate:SendTextProtocol?
     
@@ -35,10 +81,13 @@ class SecondViewController: UIViewController {
         self.navigationController?.navigationBar.barStyle = .default
         self.navigationController?.popViewController(animated: true)
     }
-    
+    // MARK: - SetNewCell
     func setCellSecondVC(cellFromFirstVC: CellViewModelSecondVC) {
         cellViewModelSecondVC = cellFromFirstVC
     }
+    
+    
+    @IBOutlet weak var mapView: MKMapView!
     
     @IBOutlet weak var textView: UITextView!
     
@@ -57,5 +106,9 @@ class SecondViewController: UIViewController {
     */
 
 }
-
-
+extension SecondViewController{
+func centerMapOnLocation(location: CLLocationCoordinate2D) {
+    let coordinateRegion = MKCoordinateRegion(center: location, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+  mapView.setRegion(coordinateRegion, animated: true)
+}
+}
