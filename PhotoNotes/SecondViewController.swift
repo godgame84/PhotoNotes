@@ -68,13 +68,47 @@ class SecondViewController: UIViewController {
             createAnnotation(location: (cellViewModelSecondVC?.getMapCoord)!, name: (cellViewModelSecondVC?.getAddress ?? "Street isn't identified"))
         }
         
+        NotificationCenter.default.addObserver(
+          self,
+          selector: #selector(keyboardWillShow(_:)),
+          name: UIResponder.keyboardWillShowNotification,
+          object: nil)
+
+        NotificationCenter.default.addObserver(
+          self,
+          selector: #selector(keyboardWillHide(_:)),
+          name: UIResponder.keyboardWillHideNotification,
+          object: nil)
+        
         // Do any additional setup after loading the view.
     }
     
     public var sendTextButtonClosure: ((_ indexToUpdate:IndexPath,_ textToUpdate:String) -> ())?  //Пора попробовать закинуть замыкания хых бля
-    
+    //1
+    func adjustInsetForKeyboardShow(_ show: Bool, notification: Notification) {
+      guard let userInfo = notification.userInfo,
+        let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey]
+          as? NSValue
+        else {
+          return
+      }
+        
+      let adjustmentHeight = (keyboardFrame.cgRectValue.height + 20) * (show ? 1 : -1)
+      scrollView.contentInset.bottom += adjustmentHeight
+      scrollView.verticalScrollIndicatorInsets.bottom += adjustmentHeight
+    }
+      
+    //2
+    @objc func keyboardWillShow(_ notification: Notification) {
+      adjustInsetForKeyboardShow(true, notification: notification)
+    }
+    @objc func keyboardWillHide(_ notification: Notification) {
+      adjustInsetForKeyboardShow(false, notification: notification)
+    }
 
-    
+    @IBAction func hideKeyboard(_ sender: AnyObject) {
+      textView.endEditing(true)
+    }
     
     @objc func saveButton() {
         if cellViewModelSecondVC?.getIndexPath != nil{
@@ -90,6 +124,8 @@ class SecondViewController: UIViewController {
         cellViewModelSecondVC = cellFromFirstVC
     }
     
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var mapView: MKMapView!
     

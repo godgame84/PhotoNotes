@@ -134,47 +134,74 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="n7e-47-FK7">
-                                <rect key="frame" x="8" y="319" width="359" height="294"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="scrollableAxes" translatesAutoresizingMaskIntoConstraints="NO" id="Jht-Sf-n87">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <subviews>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="n7e-47-FK7">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="294"/>
+                                    </mapView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XY4-Qx-mfu">
+                                        <rect key="frame" x="0.0" y="577" width="375" height="157"/>
+                                        <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="157" id="HgG-QP-GhU"/>
+                                        </constraints>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gdg-9M-0n3">
+                                        <rect key="frame" x="0.0" y="302" width="375" height="267"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="267" id="VeJ-9A-HbC"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="294" id="QYR-vY-31i"/>
+                                    <constraint firstItem="n7e-47-FK7" firstAttribute="trailing" secondItem="gdg-9M-0n3" secondAttribute="trailing" id="7gD-NW-nZ1"/>
+                                    <constraint firstItem="XY4-Qx-mfu" firstAttribute="bottom" secondItem="wEg-1p-Vll" secondAttribute="bottom" id="Jlb-S3-i6g"/>
+                                    <constraint firstItem="n7e-47-FK7" firstAttribute="centerX" secondItem="Jht-Sf-n87" secondAttribute="centerX" id="NvG-3j-0tg"/>
+                                    <constraint firstAttribute="trailing" secondItem="n7e-47-FK7" secondAttribute="trailing" id="fE5-P5-Bbq"/>
+                                    <constraint firstItem="XY4-Qx-mfu" firstAttribute="top" secondItem="gdg-9M-0n3" secondAttribute="bottom" constant="8" id="fk8-Hk-a92"/>
+                                    <constraint firstItem="n7e-47-FK7" firstAttribute="top" secondItem="wEg-1p-Vll" secondAttribute="top" id="hNt-QY-evz"/>
+                                    <constraint firstItem="n7e-47-FK7" firstAttribute="leading" secondItem="gdg-9M-0n3" secondAttribute="leading" id="iDY-dS-g2A"/>
+                                    <constraint firstItem="gdg-9M-0n3" firstAttribute="top" secondItem="n7e-47-FK7" secondAttribute="bottom" constant="8" id="jtl-GX-VWH"/>
+                                    <constraint firstAttribute="bottom" secondItem="gdg-9M-0n3" secondAttribute="bottom" constant="165" id="nak-SS-8Sn"/>
+                                    <constraint firstItem="gdg-9M-0n3" firstAttribute="trailing" secondItem="XY4-Qx-mfu" secondAttribute="trailing" id="oS9-c1-qJa"/>
+                                    <constraint firstItem="n7e-47-FK7" firstAttribute="leading" secondItem="wEg-1p-Vll" secondAttribute="leading" id="u0r-fw-0m3"/>
+                                    <constraint firstItem="gdg-9M-0n3" firstAttribute="leading" secondItem="XY4-Qx-mfu" secondAttribute="leading" id="vJ3-2E-CnP"/>
                                 </constraints>
-                            </mapView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XY4-Qx-mfu">
-                                <rect key="frame" x="8" y="621" width="359" height="157"/>
-                                <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gdg-9M-0n3">
-                                <rect key="frame" x="8" y="44" width="359" height="267"/>
-                            </imageView>
+                                <viewLayoutGuide key="contentLayoutGuide" id="t8p-PP-6wb"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="wEg-1p-Vll"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="n7e-47-FK7" firstAttribute="centerX" secondItem="n34-tm-w0S" secondAttribute="centerX" id="2Xk-8O-ooc"/>
-                            <constraint firstItem="XY4-Qx-mfu" firstAttribute="top" secondItem="n7e-47-FK7" secondAttribute="bottom" constant="8" id="AWl-0I-Phl"/>
-                            <constraint firstItem="n7e-47-FK7" firstAttribute="top" secondItem="n34-tm-w0S" secondAttribute="top" constant="319" id="KkP-q1-fAF"/>
-                            <constraint firstItem="n7e-47-FK7" firstAttribute="leading" secondItem="XY4-Qx-mfu" secondAttribute="leading" id="T5z-gv-Sod"/>
-                            <constraint firstItem="n7e-47-FK7" firstAttribute="trailing" secondItem="gdg-9M-0n3" secondAttribute="trailing" id="UbY-NR-Ph8"/>
-                            <constraint firstItem="n7e-47-FK7" firstAttribute="leading" secondItem="RcE-YM-3lJ" secondAttribute="leading" constant="8" id="ZuB-xc-8xK"/>
-                            <constraint firstItem="RcE-YM-3lJ" firstAttribute="bottom" secondItem="XY4-Qx-mfu" secondAttribute="bottom" id="ahu-6a-gzz"/>
-                            <constraint firstItem="n7e-47-FK7" firstAttribute="leading" secondItem="gdg-9M-0n3" secondAttribute="leading" id="cH4-jg-IbK"/>
-                            <constraint firstItem="n7e-47-FK7" firstAttribute="top" secondItem="gdg-9M-0n3" secondAttribute="bottom" constant="8" id="jV7-Oi-hKx"/>
-                            <constraint firstItem="n7e-47-FK7" firstAttribute="trailing" secondItem="XY4-Qx-mfu" secondAttribute="trailing" id="pjP-Tf-LO7"/>
-                            <constraint firstItem="gdg-9M-0n3" firstAttribute="top" secondItem="RcE-YM-3lJ" secondAttribute="top" id="zBv-bD-MOm"/>
+                            <constraint firstItem="RcE-YM-3lJ" firstAttribute="trailing" secondItem="Jht-Sf-n87" secondAttribute="trailing" id="1t2-3D-dBh"/>
+                            <constraint firstItem="Jht-Sf-n87" firstAttribute="leading" secondItem="RcE-YM-3lJ" secondAttribute="leading" id="8cE-wg-T8H"/>
+                            <constraint firstItem="Jht-Sf-n87" firstAttribute="bottom" secondItem="RcE-YM-3lJ" secondAttribute="bottom" id="egc-bI-IBw"/>
+                            <constraint firstItem="Jht-Sf-n87" firstAttribute="top" secondItem="RcE-YM-3lJ" secondAttribute="top" id="wvv-gj-gLN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RcE-YM-3lJ"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="B4F-RR-fVI" appends="YES" id="8DH-LX-wP3"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="gdg-9M-0n3" id="cO6-IP-8FZ"/>
                         <outlet property="mapView" destination="n7e-47-FK7" id="S5m-B6-HYc"/>
+                        <outlet property="scrollView" destination="Jht-Sf-n87" id="Dqq-ua-sj7"/>
                         <outlet property="textView" destination="XY4-Qx-mfu" id="Pke-3D-YgV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bTt-6S-b43" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="B4F-RR-fVI">
+                    <connections>
+                        <action selector="hideKeyboard:" destination="E7N-FW-X8O" id="KuQ-Wg-rhB"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1980" y="114.53201970443351"/>
         </scene>
