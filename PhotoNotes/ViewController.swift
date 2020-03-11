@@ -23,7 +23,6 @@ class ViewController: UIViewController{
     // - MARK: Private Properties
     
     private var cellViewModel = CellViewModel()
-    
     // - MARK: IBOutlets
     
     @IBOutlet weak var tableCellsView: UITableView!{
@@ -68,17 +67,7 @@ class ViewController: UIViewController{
 
 // - MARK: Public methods
 
-extension ViewController:SendTextProtocol{
-    func didUpdateWithText(text: String?) {
-        if text == nil {
-            return
-        }
-        print(text!)
-        cellViewModel.updateDescript(newDescription: textFromSecondVC)
-    }
-    
-    
-}
+
 extension ViewController: ModelDelegate {
     
     func cellsDidUpdate() {
@@ -133,6 +122,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate  {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let secondViewController = storyboard.instantiateViewController(withIdentifier: String(describing: SecondViewController.self)) as? SecondViewController else {
+            return
+        }
+        secondViewController.sendTextButtonClosure = {[weak self] (index,text) -> ()  in
+            self?.cellViewModel.updateDescript(newDescription: text, newIndex: index)
             return
         }
         self.navigationController?.pushViewController(secondViewController, animated: true)

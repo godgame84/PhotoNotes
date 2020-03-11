@@ -9,9 +9,7 @@
 import UIKit
 import MapKit
 
-protocol SendTextProtocol: class{
-    func didUpdateWithText (text:String?)
-}
+
 
 class SecondViewController: UIViewController {
     
@@ -22,6 +20,7 @@ class SecondViewController: UIViewController {
     //private let index: String?
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         let navLabel = UILabel()
         self.navigationController?.navigationBar.barStyle = .black
@@ -53,31 +52,36 @@ class SecondViewController: UIViewController {
         
         navLabel.attributedText = finalString
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveButton))
-        //navigationItem.title = "Cell number \(((cellViewModelSecondVC?.getIndexPath.row ?? 0) + 1))"
+        
         navigationItem.titleView = navLabel
        
-        
-       
-        
         self.navigationController?.navigationBar.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-    
         
         textView.text = cellViewModelSecondVC?.getDescription ?? "Default Text"
+        
+        imageView.image = cellViewModelSecondVC?.getImage
+        imageView.contentMode = .scaleToFill
         
         if cellViewModelSecondVC?.getMapCoord != nil{
             mapView.setCenter((cellViewModelSecondVC?.getMapCoord)!, animated: true)
             centerMapOnLocation(location: (cellViewModelSecondVC?.getMapCoord)!)
+            createAnnotation(location: (cellViewModelSecondVC?.getMapCoord)!, name: (cellViewModelSecondVC?.getAddress ?? "Street isn't identified"))
         }
         
         // Do any additional setup after loading the view.
     }
     
+    public var sendTextButtonClosure: ((_ indexToUpdate:IndexPath,_ textToUpdate:String) -> ())?  //Пора попробовать закинуть замыкания хых бля
     
-    weak var sendTextDelegate:SendTextProtocol?
+
     
     
     @objc func saveButton() {
-        sendTextDelegate?.didUpdateWithText(text: textView.text)
+        if cellViewModelSecondVC?.getIndexPath != nil{
+//            sendTextDelegate?.didUpdateWithText(text: textView.text, index: cellViewModelSecondVC!.getIndexPath)
+            sendTextButtonClosure!((cellViewModelSecondVC?.getIndexPath)!,textView.text)
+            
+        }
         self.navigationController?.navigationBar.barStyle = .default
         self.navigationController?.popViewController(animated: true)
     }
@@ -91,9 +95,7 @@ class SecondViewController: UIViewController {
     
     @IBOutlet weak var textView: UITextView!
     
-//    func make() {
-//        textView.
-//    }
+    @IBOutlet weak var imageView: UIImageView!
     
     /*
     // MARK: - Navigation
@@ -111,4 +113,17 @@ func centerMapOnLocation(location: CLLocationCoordinate2D) {
     let coordinateRegion = MKCoordinateRegion(center: location, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
   mapView.setRegion(coordinateRegion, animated: true)
 }
+    
+    func createAnnotation(location: CLLocationCoordinate2D, name:String) {
+        let annotation = AnnotationForMap(coordinate: location, title: name, subtitle: "")
+        mapView.addAnnotation(annotation)
+    }
+}
+
+extension SecondViewController:MKMapViewDelegate{
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "MapPinAnnot")
+      annotationView.canShowCallout = true
+      return annotationView
+    }
 }

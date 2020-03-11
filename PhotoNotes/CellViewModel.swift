@@ -27,8 +27,10 @@ class CellViewModel {
         delegate?.cellsDidUpdate()
     }
     
-    func updateDescript(newDescription:String) {
-        
+    func updateDescript(newDescription:String, newIndex:IndexPath) {
+        let index = newIndex.row
+        cells[index].descript = newDescription
+        delegate?.cellsDidUpdate()
     }
     
     func getDate( for indexPath: IndexPath) -> String  {
@@ -54,7 +56,7 @@ class CellViewModel {
     }
     func createDetailViewModel(for indexPath:IndexPath) ->CellViewModelSecondVC  {
         let index = indexPath.row
-        return CellViewModelSecondVC(newDescr: cells[index].descript, newImage: cells[index].photo, newIndexPath: indexPath, newMapCoordinates: CLLocationCoordinate2D(latitude: cells[index].MapCoord.latitude, longitude: cells[index].MapCoord.longitude) )
+        return CellViewModelSecondVC(newDescr: cells[index].descript, newImage: cells[index].photo, newIndexPath: indexPath, newMapCoordinates: CLLocationCoordinate2D(latitude: cells[index].MapCoord.latitude, longitude: cells[index].MapCoord.longitude), newAddr: cells[index].address )
     }
    
   }

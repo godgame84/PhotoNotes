@@ -11,6 +11,7 @@
 		234E724A24050AC4005DF650 /* CellViewModelSecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E724924050AC4005DF650 /* CellViewModelSecondVC.swift */; };
 		234E7250240E7A1B005DF650 /* SFProDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 234E724F240E7A1B005DF650 /* SFProDisplay-Regular.ttf */; };
 		234E7252240E7CA8005DF650 /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 234E7251240E7CA8005DF650 /* SFProDisplay-Bold.ttf */; };
+		234E7255240E8669005DF650 /* AnnotationsForMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E7254240E8669005DF650 /* AnnotationsForMap.swift */; };
 		238F4AB42334CF48000BE1EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238F4AB32334CF48000BE1EB /* AppDelegate.swift */; };
 		238F4AB62334CF48000BE1EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238F4AB52334CF48000BE1EB /* ViewController.swift */; };
 		238F4AB92334CF48000BE1EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 238F4AB72334CF48000BE1EB /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 		234E724924050AC4005DF650 /* CellViewModelSecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellViewModelSecondVC.swift; sourceTree = "<group>"; };
 		234E724F240E7A1B005DF650 /* SFProDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Regular.ttf"; sourceTree = "<group>"; };
 		234E7251240E7CA8005DF650 /* SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
+		234E7254240E8669005DF650 /* AnnotationsForMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationsForMap.swift; sourceTree = "<group>"; };
 		238F4AB02334CF48000BE1EB /* PhotoNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		238F4AB32334CF48000BE1EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		238F4AB52334CF48000BE1EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,10 +89,11 @@
 				23B9115623953E1D00BB251B /* CellModel.swift */,
 				23EEE5E723F9C77600C3E6BA /* SecondViewController.swift */,
 				234E724924050AC4005DF650 /* CellViewModelSecondVC.swift */,
-				238F4AB72334CF48000BE1EB /* Main.storyboard */,
+				234E7254240E8669005DF650 /* AnnotationsForMap.swift */,
 				238F4AB32334CF48000BE1EB /* AppDelegate.swift */,
 				23EEE5E923FC776D00C3E6BA /* GeoLocationController.swift */,
 				231EF78E23C4E77C00FA4190 /* ImagePicker.swift */,
+				238F4AB72334CF48000BE1EB /* Main.storyboard */,
 				234E7253240E7CAF005DF650 /* Fonts */,
 				238F4ABC2334CF49000BE1EB /* LaunchScreen.storyboard */,
 				238F4ABF2334CF49000BE1EB /* Info.plist */,
@@ -175,6 +178,7 @@
 				238F4AC62334D61A000BE1EB /* CellViewModel.swift in Sources */,
 				23B44B04237EA96000FDCEC8 /* TableViewCell.swift in Sources */,
 				23B9115723953E1D00BB251B /* CellModel.swift in Sources */,
+				234E7255240E8669005DF650 /* AnnotationsForMap.swift in Sources */,
 				231EF78F23C4E77C00FA4190 /* ImagePicker.swift in Sources */,
 				23EEE5E823F9C77600C3E6BA /* SecondViewController.swift in Sources */,
 				238F4AB62334CF48000BE1EB /* ViewController.swift in Sources */,

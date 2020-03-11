@@ -14,8 +14,8 @@ class CellViewModelSecondVC {
     let cell: Cell
     let indexPath:IndexPath
     
-  init(newDescr: String, newImage: UIImage, newIndexPath:IndexPath, newMapCoordinates:CLLocationCoordinate2D){
-    cell = (Cell(newImage: newImage, newDate: "", newAddress: "", newDescript: newDescr, newLatitude: newMapCoordinates.latitude, newLongitude: newMapCoordinates.longitude))
+    init(newDescr: String, newImage: UIImage, newIndexPath:IndexPath, newMapCoordinates:CLLocationCoordinate2D, newAddr:String){
+    cell = (Cell(newImage: newImage, newDate: "", newAddress: newAddr, newDescript: newDescr, newLatitude: newMapCoordinates.latitude, newLongitude: newMapCoordinates.longitude))
     indexPath=newIndexPath
     }
     
@@ -32,4 +32,8 @@ class CellViewModelSecondVC {
     var getMapCoord: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: cell.MapCoord.latitude, longitude: cell.MapCoord.longitude)
        }
+    var getAddress: String{
+        return cell.address
+    }
+    
 }
