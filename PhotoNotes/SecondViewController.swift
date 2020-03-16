@@ -22,51 +22,20 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        let navLabel = UILabel()
+        
         self.navigationController?.navigationBar.barStyle = .black
         
-        let firstPartOfTitleCell = "Cell "
-        let secondPartOfTitleNumber = "number "
-              
-        let attributeForCell: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor.green,
-            .font: UIFont(name: "SFProDisplay-Regular" , size: 32) ?? UIFont.systemFont(ofSize: 22)
-            
-        ]
-        let attributeForNumber: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor.red,
-            .font: UIFont(name: "SFProDisplay-Regular" , size: 15) ?? UIFont.systemFont(ofSize: 22)
-        ]
-        let attributeForIndex: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor.white,
-            .font: UIFont(name: "SFProDisplay-Regular" , size: 22) ?? UIFont.systemFont(ofSize: 22),]
+        constraintsForViewsOnSecondVC()
         
-        let firstPartAfterChangeCell = NSMutableAttributedString(string: firstPartOfTitleCell, attributes: attributeForCell)
-        let secondPartAfterChangeNumber = NSAttributedString(string: secondPartOfTitleNumber, attributes: attributeForNumber)
-        let thiredPartafterChangeIndex = NSAttributedString(string: "\(((cellViewModelSecondVC?.getIndexPath.row ?? 0) + 1))", attributes: attributeForIndex)
-        
-        
-        let finalString:NSMutableAttributedString = firstPartAfterChangeCell
-        finalString.append(secondPartAfterChangeNumber)
-        finalString.append(thiredPartafterChangeIndex)
-        
-        navLabel.attributedText = finalString
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveButton))
         
-        navigationItem.titleView = navLabel
+        navigationItem.titleView = finalText()
        
         self.navigationController?.navigationBar.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         
         textView.text = cellViewModelSecondVC?.getDescription ?? "Default Text"
-        
         imageView.image = cellViewModelSecondVC?.getImage
         imageView.contentMode = .scaleToFill
-        
-        if cellViewModelSecondVC?.getMapCoord != nil{
-            mapView.setCenter((cellViewModelSecondVC?.getMapCoord)!, animated: true)
-            centerMapOnLocation(location: (cellViewModelSecondVC?.getMapCoord)!)
-            createAnnotation(location: (cellViewModelSecondVC?.getMapCoord)!, name: (cellViewModelSecondVC?.getAddress ?? "Street isn't identified"))
-        }
         
         NotificationCenter.default.addObserver(
           self,
@@ -80,12 +49,85 @@ class SecondViewController: UIViewController {
           name: UIResponder.keyboardWillHideNotification,
           object: nil)
         
+        guard let mapCoord = cellViewModelSecondVC?.getMapCoord else {
+                return
+            }
+                mapView.setCenter(mapCoord, animated: true)
+                centerMapOnLocation(location: mapCoord)
+                createAnnotation(location:mapCoord, name: (cellViewModelSecondVC?.getAddress ?? "Street isn't identified"))
         
         // Do any additional setup after loading the view.
     }
     
-    public var sendTextButtonClosure: ((_ indexToUpdate:IndexPath,_ textToUpdate:String) -> ())?  //Пора попробовать закинуть замыкания хых бля
+    public var sendTextButtonClosure: ((_ indexToUpdate:IndexPath,_ textToUpdate:String) -> ())?
     //1
+    
+    
+    private func constraintsForViewsOnSecondVC() {
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        
+        mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        
+        textView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        textView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        
+        
+        
+        let viewsDictionary: [String: UIView] = ["imageView": imageView, "mapView":mapView,"textView":textView]
+        
+        let sizeOfViews = ["imageViewHeight": 250, "mapViewHeight":240,"textViewHeight":200]
+        
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[imageView(imageViewHeight)]-[mapView(mapViewHeight)]-[textView(>=textViewHeight)]-(>=10)-|", options: [], metrics: sizeOfViews, views: viewsDictionary))
+        
+    }
+    
+    private func finalText() -> UILabel {
+        let navLabel = UILabel()
+          
+        let firstPartOfTitleCell = "Cell "
+        let secondPartOfTitleNumber = "number "
+            
+        let attributeForCell: [NSAttributedString.Key: Any] = [
+          .foregroundColor: UIColor.green,
+          .font: UIFont(name: "SFProDisplay-Regular" , size: 32) ?? UIFont.systemFont(ofSize: 22)
+          
+        ]
+        let attributeForNumber: [NSAttributedString.Key: Any] = [
+          .foregroundColor: UIColor.red,
+          .font: UIFont(name: "SFProDisplay-Regular" , size: 15) ?? UIFont.systemFont(ofSize: 22)
+        ]
+        let attributeForIndex: [NSAttributedString.Key: Any] = [
+          .foregroundColor: UIColor.white,
+          .font: UIFont(name: "SFProDisplay-Regular" , size: 22) ?? UIFont.systemFont(ofSize: 22),]
+
+        let firstPartAfterChangeCell = NSMutableAttributedString(string: firstPartOfTitleCell, attributes: attributeForCell)
+        let secondPartAfterChangeNumber = NSAttributedString(string: secondPartOfTitleNumber, attributes: attributeForNumber)
+        let thiredPartafterChangeIndex = NSAttributedString(string: "\(((cellViewModelSecondVC?.getIndexPath.row ?? 0) + 1))", attributes: attributeForIndex)
+
+
+        let finalString:NSMutableAttributedString = firstPartAfterChangeCell
+        finalString.append(secondPartAfterChangeNumber)
+        finalString.append(thiredPartafterChangeIndex)
+
+        navLabel.attributedText = finalString
+        
+        return navLabel
+          
+    }
+    
     func adjustInsetForKeyboardShow(_ show: Bool, notification: Notification) {
       guard let userInfo = notification.userInfo,
         let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey]
@@ -94,9 +136,14 @@ class SecondViewController: UIViewController {
           return
       }
         
-      let adjustmentHeight = (keyboardFrame.cgRectValue.height + 20) * (show ? 1 : -1)
+      let adjustmentHeight = (keyboardFrame.cgRectValue.height) * (show ? 1 : -1)
       scrollView.contentInset.bottom += adjustmentHeight
       scrollView.verticalScrollIndicatorInsets.bottom += adjustmentHeight
+        if adjustmentHeight > 0{
+            scrollView.setContentOffset( CGPoint(x: 0, y: adjustmentHeight), animated: false)
+        } else{
+            scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+        }
     }
       
     //2
@@ -113,7 +160,6 @@ class SecondViewController: UIViewController {
     
     @objc func saveButton() {
         if cellViewModelSecondVC?.getIndexPath != nil{
-//            sendTextDelegate?.didUpdateWithText(text: textView.text, index: cellViewModelSecondVC!.getIndexPath)
             sendTextButtonClosure!((cellViewModelSecondVC?.getIndexPath)!,textView.text)
             
         }
@@ -152,7 +198,10 @@ func centerMapOnLocation(location: CLLocationCoordinate2D) {
 }
     
     func createAnnotation(location: CLLocationCoordinate2D, name:String) {
-        let annotation = AnnotationForMap(coordinate: location, title: name, subtitle: "")
+        
+        guard let annotation = cellViewModelSecondVC?.getAnnotation else {
+            return
+        }
         mapView.addAnnotation(annotation)
     }
 }
