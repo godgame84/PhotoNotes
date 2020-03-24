@@ -16,6 +16,7 @@ class SecondViewController: UIViewController {
     private var indexPath:IndexPath?
     private var cellViewModelSecondVC: CellViewModelSecondVC?
     private let regionRadius: CLLocationDistance = 1000
+    private var fabricOfColor = fabric()
     
     //private let index: String?
     
@@ -49,6 +50,8 @@ class SecondViewController: UIViewController {
           name: UIResponder.keyboardWillHideNotification,
           object: nil)
         
+        
+        
         guard let mapCoord = cellViewModelSecondVC?.getMapCoord else {
                 return
             }
@@ -65,26 +68,22 @@ class SecondViewController: UIViewController {
     
     private func constraintsForViewsOnSecondVC() {
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        
         mapView.translatesAutoresizingMaskIntoConstraints = false
-        
-        mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        
         textView.translatesAutoresizingMaskIntoConstraints = false
-        
-        textView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        textView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         
-        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-        scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
-        
-        
+        let allViewConstraints = [
+            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            textView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            textView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
+            ]
+
+        NSLayoutConstraint.activate(allViewConstraints)
         
         let viewsDictionary: [String: UIView] = ["imageView": imageView, "mapView":mapView,"textView":textView]
         
@@ -99,7 +98,8 @@ class SecondViewController: UIViewController {
           
         let firstPartOfTitleCell = "Cell "
         let secondPartOfTitleNumber = "number "
-            
+        
+         let color =  fabricOfColor.colorOnTarget()
         let attributeForCell: [NSAttributedString.Key: Any] = [
           .foregroundColor: UIColor.green,
           .font: UIFont(name: "SFProDisplay-Regular" , size: 32) ?? UIFont.systemFont(ofSize: 22)
@@ -123,7 +123,7 @@ class SecondViewController: UIViewController {
         finalString.append(thiredPartafterChangeIndex)
 
         navLabel.attributedText = finalString
-        
+        navLabel.textColor = color
         return navLabel
           
     }
