@@ -16,7 +16,7 @@ class SecondViewController: UIViewController {
     private var indexPath:IndexPath?
     private var cellViewModelSecondVC: CellViewModelSecondVC?
     private let regionRadius: CLLocationDistance = 1000
-    private var fabricOfColor = fabric()
+    private var fabricOfColor = Fabric()
     
     //private let index: String?
     
