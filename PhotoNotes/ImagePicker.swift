@@ -18,14 +18,16 @@ open class ImagePicker: NSObject {
     
     private let pickerController: UIImagePickerController
     private weak var presentationController: UIViewController?
+    
     private weak var delegate: ImagePickerDelegate?
     
     public init(presentationController: UIViewController ,delegate: ImagePickerDelegate) {
         self.pickerController = UIImagePickerController()
         
         super.init()
-        
+        self.presentationController?.modalPresentationStyle = .overFullScreen
         self.presentationController = presentationController
+        
         self.delegate = delegate
         
         self.pickerController.delegate = self
@@ -61,6 +63,7 @@ open class ImagePicker: NSObject {
                 UIApplication.shared.openURL(URL(string: UIApplication.openSettingsURLString)!)
             }
         }))
+        
         self.presentationController?.present(alert, animated: true, completion: nil)
     }
     
@@ -72,6 +75,7 @@ open class ImagePicker: NSObject {
             }
         return UIAlertAction(title: title, style: .default){ [unowned self] _ in
             self.pickerController.sourceType = type
+            self.pickerController.modalPresentationStyle = .fullScreen
             self.presentationController?.present(self.pickerController,animated: true)
         }
     }
@@ -100,7 +104,8 @@ open class ImagePicker: NSObject {
     }
     
     private func pickerController(_ controller: UIImagePickerController, didSelect image: UIImage?) {
-           controller.dismiss(animated: true, completion: nil)
+        
+        controller.dismiss(animated: true, completion: nil)
 
         self.delegate?.didSelect(image: image)
        }
