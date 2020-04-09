@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19E266" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="TableCell" representedClassName="TableCell" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="descr" optional="YES" attributeType="String"/>
+        <attribute name="geo" optional="YES" attributeType="String"/>
+        <attribute name="photo" optional="YES" attributeType="Binary"/>
+    </entity>
+    <elements>
+        <element name="TableCell" positionX="-63" positionY="-18" width="128" height="103"/>
+    </elements>
+</model>

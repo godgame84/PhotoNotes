@@ -19,11 +19,11 @@ class ViewController: UIViewController{
     var defaultPicture = #imageLiteral(resourceName: "Image")
     var textFromSecondVC:String = "Press to edit description"
     var higlightenIndex: IndexPath?
+    var fabric = Fabric()
     
     // - MARK: Private Properties
     
     private var cellViewModel = CellViewModel()
-    
     // - MARK: IBOutlets
     
     @IBOutlet weak var tableCellsView: UITableView!{
@@ -53,6 +53,7 @@ class ViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(fabric.stackOnTarget())
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         self.geoLocation = GeoLocation(delegate: self, presentationController: self)
     }
@@ -60,6 +61,13 @@ class ViewController: UIViewController{
     override func viewDidAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.barStyle = .default
         super.viewDidAppear(animated)
+        print(cellViewModel.fetchFromCoreData())
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        var stroka = cellViewModel.fetchFromCoreData()
+        cellViewModel.createCell(imageNew: #imageLiteral(resourceName: "Image"), textNew: stroka[0].value(forKeyPath: "date") as? String ?? "nil", realAddress: "", realDescript: "", realMapCoord: CLLocationCoordinate2D.init(latitude: 50, longitude: 50))
     }
 
     
@@ -68,17 +76,7 @@ class ViewController: UIViewController{
 
 // - MARK: Public methods
 
-extension ViewController:SendTextProtocol{
-    func didUpdateWithText(text: String?) {
-        if text == nil {
-            return
-        }
-        print(text!)
-        cellViewModel.updateDescript(newDescription: textFromSecondVC)
-    }
-    
-    
-}
+
 extension ViewController: ModelDelegate {
     
     func cellsDidUpdate() {
@@ -133,6 +131,10 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate  {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let secondViewController = storyboard.instantiateViewController(withIdentifier: String(describing: SecondViewController.self)) as? SecondViewController else {
+            return
+        }
+        secondViewController.sendTextButtonClosure = {[weak self] (index,text) -> ()  in
+            self?.cellViewModel.updateDescript(newDescription: text, newIndex: index)
             return
         }
         self.navigationController?.pushViewController(secondViewController, animated: true)
