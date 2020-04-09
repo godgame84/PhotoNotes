@@ -9,9 +9,33 @@
 import Foundation
 import CoreData
 
-class CoreCoordinator {
+class CoreCoordinator:coreDataFacroty {
+    func save(imageNew: Data, dateNew: String, realAddress: String, realDescript: String, latitude: String, longitude: String) {
+        let managedcontext = createContext()//appdelegate.persistentContainer.viewContext
+                      
+        guard let entity = NSEntityDescription.entity(forEntityName: "TableCell", in: managedcontext) else{
+          return
+        }
+
+        let managedCell = NSManagedObject(entity: entity, insertInto: managedcontext)
+
+        managedCell.setValue(dateNew, forKeyPath: "date")
+        managedCell.setValue(imageNew, forKeyPath: "photo")
+        managedCell.setValue(realAddress, forKeyPath: "address")
+        managedCell.setValue(realDescript, forKeyPath: "descr")
+        managedCell.setValue(longitude, forKeyPath: "longitude")
+        managedCell.setValue(latitude, forKey: "latitude")
+        
+        
+        do {
+          try managedcontext.save()
+        } catch let error as NSError {
+          print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
     
-    func initializeModel()->NSManagedObjectContext {
+    
+    func createContext()->NSManagedObjectContext {
         let modelURL = Bundle.main.url(forResource: "PhotoModel", withExtension: "momd")
         guard let model = NSManagedObjectModel(contentsOf: modelURL!) else {
             fatalError("Unable to find Data Model")

@@ -10,6 +10,7 @@
 
 import UIKit
 import MapKit
+import CoreData
 
 class ViewController: UIViewController{
     // - MARK: Public Properties
@@ -21,8 +22,10 @@ class ViewController: UIViewController{
     var higlightenIndex: IndexPath?
     var fabric = Fabric()
     
-    // - MARK: Private Properties
+    var dataFromCore: [NSManagedObject] = []
     
+    // - MARK: Private Properties
+   
     private var cellViewModel = CellViewModel()
     // - MARK: IBOutlets
     
@@ -53,21 +56,22 @@ class ViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(fabric.stackOnTarget())
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         self.geoLocation = GeoLocation(delegate: self, presentationController: self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
         self.navigationController?.navigationBar.barStyle = .default
         super.viewDidAppear(animated)
-        print(cellViewModel.fetchFromCoreData())
+       // print(cellViewModel.fetchFromCoreData())
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        var stroka = cellViewModel.fetchFromCoreData()
-        cellViewModel.createCell(imageNew: #imageLiteral(resourceName: "Image"), textNew: stroka[0].value(forKeyPath: "date") as? String ?? "nil", realAddress: "", realDescript: "", realMapCoord: CLLocationCoordinate2D.init(latitude: 50, longitude: 50))
+        dataFromCore = cellViewModel.fetchFromCoreData()
+//        let stroka = cellViewModel.fetchFromCoreData()
+//        cellViewModel.createCell(imageNew: #imageLiteral(resourceName: "Image"), textNew: stroka[0].value(forKeyPath: "date") as? String ?? "nil", realAddress: "", realDescript: "", realMapCoord: CLLocationCoordinate2D.init(latitude: 50, longitude: 50))
     }
 
     
@@ -95,7 +99,7 @@ extension ViewController: ImagePickerDelegate{
         dateFormatter.timeStyle = .none
         dateFormatter.locale = Locale(identifier: "ru_RUS")
         dateFormatter.setLocalizedDateFormatFromTemplate("dd-YYYY-MM")
-        cellViewModel.createCell(imageNew: image ?? defaultPicture, textNew: dateFormatter.string(from: Date()),  realAddress: geoLocation.formAddres(), realDescript: textFromSecondVC, realMapCoord: geoLocation.formCoordinates())
+        cellViewModel.createCell(imageNew: image ?? defaultPicture, dateNew: dateFormatter.string(from: Date()),  realAddress: geoLocation.formAddres(), realDescript: textFromSecondVC, realMapCoord: geoLocation.formCoordinates())
    
     }
 }
@@ -113,7 +117,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate  {
   
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-     return   cellViewModel.getCountOfRows()
+        return   dataFromCore.count//cellViewModel.getCountOfRows()
     }
     
     
@@ -121,10 +125,17 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate  {
        guard let cell = tableView.dequeueReusableCell(withIdentifier: "photoCellIdentifier") as? TableViewCell
         else {return UITableViewCell()}
         
-        cell.cellLabel.text = cellViewModel.getDate(for: indexPath)
-        cell.cellImageView.image = cellViewModel.getImage(for: indexPath)
-        cell.cellGeo.text = cellViewModel.getAddress(for: indexPath)
-        cell.cellDescription.text=cellViewModel.getDescript(for: indexPath)
+        
+        let cellFromCore = dataFromCore[indexPath.row]
+        cell.cellLabel.text = cellFromCore.value(forKeyPath: "date") as? String
+        cell.cellImageView.image = UIImage(data: cellFromCore.value(forKeyPath: "photo") as? Data  ?? Data(capacity: 2))
+        cell.cellGeo.text = cellFromCore.value(forKeyPath: "address") as? String
+        cell.cellDescription.text=cellFromCore.value(forKeyPath: "descr") as? String
+//
+//        cell.cellLabel.text = cellViewModel.getDate(for: indexPath)
+//        cell.cellImageView.image = cellViewModel.getImage(for: indexPath)
+//        cell.cellGeo.text = cellViewModel.getAddress(for: indexPath)
+//        cell.cellDescription.text=cellViewModel.getDescript(for: indexPath)
         return cell
     }
     

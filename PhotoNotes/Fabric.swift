@@ -16,6 +16,8 @@ enum StackType:String {
     case Container, Coordinator
 }
 
+
+
 class Fabric {
     func colorOnTarget() -> UIColor{
     guard let object = Bundle.main.object(forInfoDictionaryKey: "NavigationBarTitleColor") else { fatalError("Unable to Find Color for NavigationBarTitle") }
@@ -30,19 +32,21 @@ class Fabric {
         }
         
     }
-    func stackOnTarget() -> String {
+    func stackOnTarget() -> coreDataFacroty {
          guard let objectDate = Bundle.main.object(forInfoDictionaryKey: "StackTypeControl") else {
                    fatalError("Unable to find type for Core Data Stack")
                }
               
                switch objectDate {
                case let value as String where value == StackType.Container.rawValue:
-                   return "Container"
+                   return CoreContainer()
                case let value as String where value == StackType.Coordinator.rawValue:
-                   return "Coordinator"
+                   return CoreCoordinator()
                default:
-                   return "NoType"
+                   return CoreCoordinator()
                }
     }
+    
+    
     
 }

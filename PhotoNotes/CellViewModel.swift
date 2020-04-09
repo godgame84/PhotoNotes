@@ -11,6 +11,16 @@ protocol ModelDelegate: class {
     func cellsDidUpdate()
 }
 
+
+protocol coreDataFacroty {
+    
+    func createContext() -> NSManagedObjectContext
+    
+    func save(imageNew: Data, dateNew: String, realAddress:String, realDescript:String, latitude:String, longitude: String)
+    
+    
+}
+
 import UIKit
 import Foundation
 import CoreLocation
@@ -20,15 +30,22 @@ import CoreData
 class CellViewModel {
     private var cells = [Cell]()
     weak var delegate:ModelDelegate?
-    private var coreCoordDel = CoreCoordinator()
+    var fabric = Fabric()
+    
     
    // private var managedCoreCoordinator = CoreCoordinator()
     
-    func createCell (imageNew: UIImage, textNew: String, realAddress:String, realDescript:String, realMapCoord:CLLocationCoordinate2D) {
+    func createCell (imageNew: UIImage, dateNew: String, realAddress:String, realDescript:String, realMapCoord:CLLocationCoordinate2D) {
     
-        cells.append(Cell(newImage: imageNew, newDate: textNew, newAddress: realAddress,newDescript: realDescript, newLatitude: realMapCoord.latitude, newLongitude: realMapCoord.longitude ))
-        save(textNew: textNew)
+        cells.append(Cell(newImage: imageNew, newDate: dateNew, newAddress: realAddress,newDescript: realDescript, newLatitude: realMapCoord.latitude, newLongitude: realMapCoord.longitude ))
+        
+      
+        
         delegate?.cellsDidUpdate()
+        guard let imageToSave = imageNew.pngData() else {return}
+        let coreData = fabric.stackOnTarget()
+        coreData.save(imageNew: imageToSave , dateNew: dateNew, realAddress: realAddress, realDescript: realDescript, latitude: realMapCoord.latitude.description, longitude: realMapCoord.longitude.description)
+        
     }
     
     func updateDescript(newDescription:String, newIndex:IndexPath) {
@@ -63,36 +80,20 @@ class CellViewModel {
         return CellViewModelSecondVC(newDescr: cells[index].descript, newImage: cells[index].photo, newIndexPath: indexPath, newMapCoordinates: CLLocationCoordinate2D(latitude: cells[index].MapCoord.latitude, longitude: cells[index].MapCoord.longitude), newAddr: cells[index].address )
     }
     
-    func save(/*imageNew: UIImage,*/ textNew: String/*, realAddress:String, realDescript:String, realMapCoord:CLLocationCoordinate2D*/) {
-//        guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else{
-//            return
-//        }
+    
+    
+    func someFunc(with creator: coreDataFacroty) {
         
-        let managedcontext = coreCoordDel.initializeModel()//appdelegate.persistentContainer.viewContext
         
-        guard let entity = NSEntityDescription.entity(forEntityName: "TableCell", in: managedcontext) else{
-            return
-        }
         
-        let managedCell = NSManagedObject(entity: entity, insertInto: managedcontext)
         
-        managedCell.setValue(textNew, forKeyPath: "date")
-        
-        do {
-            try managedcontext.save()
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
-        }
     }
     
     func fetchFromCoreData() -> [NSManagedObject] {
         var dateToReveal: [NSManagedObject] = []
-//        guard let appdelegate = UIApplication.shared.delegate as? AppDelegate else{
-//            return dateToReveal
-//        }
         
         
-        let managedcontext = coreCoordDel.initializeModel()//appdelegate.persistentContainer.viewContext
+        let managedcontext = fabric.stackOnTarget().createContext()//appdelegate.persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TableCell")
         
@@ -106,5 +107,12 @@ class CellViewModel {
     }
    
   }
+
+//extension coreDataFacroty{
+//    func chooseFactory(<#parameters#>) -> <#return type#> {
+//        <#function body#>
+//    }
+//}
+
 
 
