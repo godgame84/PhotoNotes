@@ -10,13 +10,16 @@ import Foundation
 import CoreData
 
 class CoreCoordinator:coreDataFacroty {
-    func save(imageNew: Data, dateNew: String, realAddress: String, realDescript: String, latitude: String, longitude: String) {
+    
+     
+    
+    func save(imageNew: Data, dateNew: String, realAddress: String, realDescript: String, latitude: String, longitude: String) -> NSManagedObject {
         let managedcontext = createContext()//appdelegate.persistentContainer.viewContext
                       
         guard let entity = NSEntityDescription.entity(forEntityName: "TableCell", in: managedcontext) else{
-          return
+          return NSManagedObject()
         }
-
+        
         let managedCell = NSManagedObject(entity: entity, insertInto: managedcontext)
 
         managedCell.setValue(dateNew, forKeyPath: "date")
@@ -29,9 +32,11 @@ class CoreCoordinator:coreDataFacroty {
         
         do {
           try managedcontext.save()
+            return managedCell
         } catch let error as NSError {
           print("Could not save. \(error), \(error.userInfo)")
         }
+        return managedCell
     }
     
     

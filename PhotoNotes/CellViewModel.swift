@@ -16,7 +16,7 @@ protocol coreDataFacroty {
     
     func createContext() -> NSManagedObjectContext
     
-    func save(imageNew: Data, dateNew: String, realAddress:String, realDescript:String, latitude:String, longitude: String)
+    func save(imageNew: Data, dateNew: String, realAddress:String, realDescript:String, latitude:String, longitude: String) -> NSManagedObject
     
     
 }
@@ -31,7 +31,7 @@ class CellViewModel {
     private var cells = [Cell]()
     weak var delegate:ModelDelegate?
     var fabric = Fabric()
-    
+    public var sendDataToVC: ((_ managedcell:NSManagedObject)->())?
     
    // private var managedCoreCoordinator = CoreCoordinator()
     
@@ -41,10 +41,12 @@ class CellViewModel {
         
       
         
-        delegate?.cellsDidUpdate()
+        
         guard let imageToSave = imageNew.pngData() else {return}
         let coreData = fabric.stackOnTarget()
-        coreData.save(imageNew: imageToSave , dateNew: dateNew, realAddress: realAddress, realDescript: realDescript, latitude: realMapCoord.latitude.description, longitude: realMapCoord.longitude.description)
+        let managedCellFromCore = coreData.save(imageNew: imageToSave , dateNew: dateNew, realAddress: realAddress, realDescript: realDescript, latitude: realMapCoord.latitude.description, longitude: realMapCoord.longitude.description)
+        sendDataToVC?(managedCellFromCore)
+        delegate?.cellsDidUpdate()
         
     }
     

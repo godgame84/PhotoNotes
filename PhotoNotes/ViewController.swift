@@ -24,6 +24,7 @@ class ViewController: UIViewController{
     
     var dataFromCore: [NSManagedObject] = []
     
+    
     // - MARK: Private Properties
    
     private var cellViewModel = CellViewModel()
@@ -70,20 +71,16 @@ class ViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         dataFromCore = cellViewModel.fetchFromCoreData()
-//        let stroka = cellViewModel.fetchFromCoreData()
-//        cellViewModel.createCell(imageNew: #imageLiteral(resourceName: "Image"), textNew: stroka[0].value(forKeyPath: "date") as? String ?? "nil", realAddress: "", realDescript: "", realMapCoord: CLLocationCoordinate2D.init(latitude: 50, longitude: 50))
     }
-
-    
 }
-
-
 // - MARK: Public methods
+
 
 
 extension ViewController: ModelDelegate {
     
     func cellsDidUpdate() {
+
         tableCellsView.reloadData()
         
     }
@@ -99,6 +96,10 @@ extension ViewController: ImagePickerDelegate{
         dateFormatter.timeStyle = .none
         dateFormatter.locale = Locale(identifier: "ru_RUS")
         dateFormatter.setLocalizedDateFormatFromTemplate("dd-YYYY-MM")
+        cellViewModel.sendDataToVC = {[weak self] (objectFromCore) ->() in
+            self?.dataFromCore.append(objectFromCore)
+            return
+        }
         cellViewModel.createCell(imageNew: image ?? defaultPicture, dateNew: dateFormatter.string(from: Date()),  realAddress: geoLocation.formAddres(), realDescript: textFromSecondVC, realMapCoord: geoLocation.formCoordinates())
    
     }

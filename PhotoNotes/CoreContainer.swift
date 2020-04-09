@@ -10,8 +10,8 @@ import Foundation
 import CoreData
 
 class CoreContainer:coreDataFacroty {
-    func save(imageNew: Data, dateNew: String, realAddress: String, realDescript: String, latitude: String, longitude: String) {
-        
+    func save(imageNew: Data, dateNew: String, realAddress: String, realDescript: String, latitude: String, longitude: String) ->NSManagedObject {
+        return NSManagedObject()
     }
     
     func createContext() -> NSManagedObjectContext {
