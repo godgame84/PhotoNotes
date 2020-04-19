@@ -16,7 +16,7 @@ class SecondViewController: UIViewController {
     private var indexPath:IndexPath?
     private var cellViewModelSecondVC: CellViewModelSecondVC?
     private let regionRadius: CLLocationDistance = 1000
-    private var fabricOfColor = Fabric()
+    private var fabricOfColor = CoreDataStackFactory()
     
     //private let index: String?
     
@@ -99,7 +99,7 @@ class SecondViewController: UIViewController {
         let firstPartOfTitleCell = "Cell "
         let secondPartOfTitleNumber = "number "
         
-         let color =  fabricOfColor.colorOnTarget()
+        let color =  UIColor.white
         let attributeForCell: [NSAttributedString.Key: Any] = [
           .foregroundColor: UIColor.green,
           .font: UIFont(name: "SFProDisplay-Regular" , size: 32) ?? UIFont.systemFont(ofSize: 22)

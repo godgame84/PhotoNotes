@@ -20,7 +20,7 @@ class ViewController: UIViewController{
     var defaultPicture = #imageLiteral(resourceName: "Image")
     var textFromSecondVC:String = "Press to edit description"
     var higlightenIndex: IndexPath?
-    var fabric = Fabric()
+    var fabric = CoreDataStackFactory()
     
     var dataFromCore: [NSManagedObject] = []
     
@@ -65,17 +65,18 @@ class ViewController: UIViewController{
         
         self.navigationController?.navigationBar.barStyle = .default
         super.viewDidAppear(animated)
-       // print(cellViewModel.fetchFromCoreData())
+
+        //checkLocationEnabled()
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        dataFromCore = cellViewModel.fetchFromCoreData()
+        self.dataFromCore = cellViewModel.fetchFromCoreData()
     }
+    
 }
-// - MARK: Public methods
 
 
+// - MARK: public methods
 
 extension ViewController: ModelDelegate {
     
@@ -108,7 +109,6 @@ extension ViewController: ImagePickerDelegate{
 extension ViewController: GeoLocationDelegate{
     func didselect(locatin: CLLocation) {
         print(locatin)
-        print("aasdjkasjdkasjdlaslkdjaskdjlaskjdlkajsdkljaslkdja")
     }
 }
 
@@ -118,7 +118,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate  {
   
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return   dataFromCore.count//cellViewModel.getCountOfRows()
+        return   self.dataFromCore.count//cellViewModel.getCountOfRows()
     }
     
     
@@ -127,16 +127,11 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate  {
         else {return UITableViewCell()}
         
         
-        let cellFromCore = dataFromCore[indexPath.row]
+        let cellFromCore = self.dataFromCore[indexPath.row]
         cell.cellLabel.text = cellFromCore.value(forKeyPath: "date") as? String
         cell.cellImageView.image = UIImage(data: cellFromCore.value(forKeyPath: "photo") as? Data  ?? Data(capacity: 2))
         cell.cellGeo.text = cellFromCore.value(forKeyPath: "address") as? String
         cell.cellDescription.text=cellFromCore.value(forKeyPath: "descr") as? String
-//
-//        cell.cellLabel.text = cellViewModel.getDate(for: indexPath)
-//        cell.cellImageView.image = cellViewModel.getImage(for: indexPath)
-//        cell.cellGeo.text = cellViewModel.getAddress(for: indexPath)
-//        cell.cellDescription.text=cellViewModel.getDescript(for: indexPath)
         return cell
     }
     
