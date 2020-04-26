@@ -106,8 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				233FB0EE242A103400945AFC /* CoreDataStackFactory.swift */,
-				233FB0F324336AEC00945AFC /* CoreContainer.swift */,
 				233FB0F524336B3100945AFC /* CoreCoordinator.swift */,
+				233FB0F324336AEC00945AFC /* CoreContainer.swift */,
 				233FB0F0243365F900945AFC /* PhotoModel.xcdatamodeld */,
 			);
 			path = CoreData;

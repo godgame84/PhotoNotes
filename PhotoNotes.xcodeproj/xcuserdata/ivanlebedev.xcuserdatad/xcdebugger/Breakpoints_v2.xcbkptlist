@@ -7,518 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "55193EF3-5C69-4BCA-BEF4-A1E230CC237A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoNotes/CellViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "createDetailViewModel(for:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CE024F27-279A-436D-974A-A6A48FB303CE"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoNotes/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
-            landmarkName = "tableView(_:didSelectRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D51CCC79-5B40-419B-8C2F-0DB5C1323BE7"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoNotes/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
-            landmarkName = "tableView(_:didSelectRowAt:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "D51CCC79-5B40-419B-8C2F-0DB5C1323BE7 - 385790df70a413be"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PhotoNotes.ViewController.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "PhotoNotes"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ivanlebedev/Developer/PhotoNotes/PhotoNotes/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "143"
-                  endingLineNumber = "143"
-                  offsetFromSymbolStart = "573">
-               </Location>
-               <Location
-                  uuid = "D51CCC79-5B40-419B-8C2F-0DB5C1323BE7 - d211a3271cc35ee2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Foundation.IndexPath, Swift.String) -&gt; () in PhotoNotes.ViewController.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "PhotoNotes"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ivanlebedev/Developer/PhotoNotes/PhotoNotes/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "143"
-                  endingLineNumber = "143"
-                  offsetFromSymbolStart = "137">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "46A8CCEC-E3A6-4CE1-BA8C-7B6F32455760"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoNotes/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
-            landmarkName = "tableView(_:didSelectRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "31F83B87-73F3-4E26-9BCC-27299BE57EDD"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoNotes/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "93430F81-0D49-48D4-8667-B9F5AF6E39F2"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoNotes/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E7020F78-DFC0-49B5-8E34-A536B0E487DA"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoNotes/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F7C8E9E6-486B-4B78-AEF5-8DEE8EDBCF27"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoNotes/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5263E178-A58E-4938-A58B-E9C16FBB5355"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoNotes/CoreData/CoreCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4F48F0F2-9FD7-42D4-B55A-DC4F113A8121"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoNotes/CoreData/CoreCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "61B6A842-2113-4CEE-BD56-419875B2EC79"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoNotes/CoreData/CoreCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C9896CB7-82CC-4FA9-ABFC-6E41AACD447C"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoNotes/CoreData/CoreCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "unknown"
-            landmarkType = "0">
-            <Locations>
-               <Location
-                  uuid = "C9896CB7-82CC-4FA9-ABFC-6E41AACD447C - a89036f00fe57a71"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PhotoNotes.CoreCoordinator.save(imageNew: Foundation.Data, dateNew: Swift.String, realAddress: Swift.String, realDescript: Swift.String, latitude: Swift.String, longitude: Swift.String) -&gt; __C.NSManagedObject"
-                  moduleName = "PhotoNotes"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ivanlebedev/Developer/PhotoNotes/PhotoNotes/CoreData/CoreCoordinator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "50"
-                  endingLineNumber = "50"
-                  offsetFromSymbolStart = "1326">
-               </Location>
-               <Location
-                  uuid = "C9896CB7-82CC-4FA9-ABFC-6E41AACD447C - 9740269d01ddb2e1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in PhotoNotes.CoreCoordinator.save(imageNew: Foundation.Data, dateNew: Swift.String, realAddress: Swift.String, realDescript: Swift.String, latitude: Swift.String, longitude: Swift.String) -&gt; __C.NSManagedObject"
-                  moduleName = "PhotoNotes"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ivanlebedev/Developer/PhotoNotes/PhotoNotes/CoreData/CoreCoordinator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "52"
-                  endingLineNumber = "52"
-                  offsetFromSymbolStart = "421">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A6FC9347-E712-406F-AB75-46CE9A6CAE52"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoNotes/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "viewWillAppear(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FA8A049D-6F70-40B3-BD0D-C401A76FE9DB"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoNotes/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "didSelect(image:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "FA8A049D-6F70-40B3-BD0D-C401A76FE9DB - 9ea48a223afcfe61"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PhotoNotes.ViewController.didSelect(image: Swift.Optional&lt;__C.UIImage&gt;) -&gt; ()"
-                  moduleName = "PhotoNotes"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ivanlebedev/Developer/PhotoNotes/PhotoNotes/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "107"
-                  endingLineNumber = "107"
-                  offsetFromSymbolStart = "582">
-               </Location>
-               <Location
-                  uuid = "FA8A049D-6F70-40B3-BD0D-C401A76FE9DB - d4bfaa2c592cbcb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.NSManagedObject) -&gt; () in PhotoNotes.ViewController.didSelect(image: Swift.Optional&lt;__C.UIImage&gt;) -&gt; ()"
-                  moduleName = "PhotoNotes"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ivanlebedev/Developer/PhotoNotes/PhotoNotes/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "107"
-                  endingLineNumber = "107"
-                  offsetFromSymbolStart = "94">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1C623E17-1FDC-45A5-A2B9-C8B4C2A01A99"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoNotes/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "didSelect(image:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2C12F74A-DCBE-4CEF-9C89-ED19CA5E8256"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoNotes/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "didSelect(image:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "DC09D563-4543-4C72-B7FB-ABD69C4116DA"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoNotes/CoreData/CoreCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "07B4EE4F-E3E2-4F57-9E5E-9F877252A75A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoNotes/CoreData/CoreCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B5B52F9B-A8D9-45EF-A189-A844D64AB104"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoNotes/CoreData/CoreCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FF8590FD-D7C3-4E8E-8754-23347187DC05"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoNotes/CoreData/CoreCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "23C269FF-D9F3-4698-9360-13C27609FDF3"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoNotes/CoreData/CoreCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0C687AD9-CE6A-4724-9059-A993CCF90E2E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoNotes/CoreData/CoreCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E1329200-7A5B-4604-BD07-1DA4A064E7B1"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoNotes/CoreData/CoreCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "unknown"
-            landmarkType = "0">
-            <Locations>
-               <Location
-                  uuid = "E1329200-7A5B-4604-BD07-1DA4A064E7B1 - b88865565a3ae58"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PhotoNotes.CoreCoordinator.contextDidSave(Foundation.Notification) -&gt; ()"
-                  moduleName = "PhotoNotes"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ivanlebedev/Developer/PhotoNotes/PhotoNotes/CoreData/CoreCoordinator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "71"
-                  endingLineNumber = "71"
-                  offsetFromSymbolStart = "35">
-               </Location>
-               <Location
-                  uuid = "E1329200-7A5B-4604-BD07-1DA4A064E7B1 - b1b7595e32dd554"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in PhotoNotes.CoreCoordinator.contextDidSave(Foundation.Notification) -&gt; ()"
-                  moduleName = "PhotoNotes"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ivanlebedev/Developer/PhotoNotes/PhotoNotes/CoreData/CoreCoordinator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "69"
-                  endingLineNumber = "69"
-                  offsetFromSymbolStart = "87">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "07BBDE53-3C0C-4470-A3EC-DB29C61AA275"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoNotes/CoreData/CoreCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "62C362CF-7D4C-4D08-AF91-ACEA84EA0BCE"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -526,8 +14,8 @@
             filePath = "PhotoNotes/Model+ViewModels/CellViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "createCell(imageNew:dateNew:realAddress:realDescript:realMapCoord:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -542,8 +30,8 @@
             filePath = "PhotoNotes/Model+ViewModels/CellViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "createDetailViewModel(for:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -558,73 +46,9 @@
             filePath = "PhotoNotes/Model+ViewModels/CellViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "createDetailViewModel(for:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E73B64A9-4AA6-4AE8-BAE1-544BF9EA1345"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoNotes/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
-            landmarkName = "tableView(_:didSelectRowAt:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E73B64A9-4AA6-4AE8-BAE1-544BF9EA1345 - 385790df70a413be"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PhotoNotes.ViewController.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "PhotoNotes"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ivanlebedev/Developer/PhotoNotes/PhotoNotes/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "143"
-                  endingLineNumber = "143"
-                  offsetFromSymbolStart = "573">
-               </Location>
-               <Location
-                  uuid = "E73B64A9-4AA6-4AE8-BAE1-544BF9EA1345 - d211a3271cc35ee2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Foundation.IndexPath, Swift.String) -&gt; () in PhotoNotes.ViewController.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "PhotoNotes"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ivanlebedev/Developer/PhotoNotes/PhotoNotes/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "143"
-                  endingLineNumber = "143"
-                  offsetFromSymbolStart = "137">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B019E104-25E0-4F69-BC59-79F5A40ED153"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoNotes/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
-            landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -638,8 +62,8 @@
             filePath = "PhotoNotes/Model+ViewModels/CellViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "getAddress(for:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -654,8 +78,8 @@
             filePath = "PhotoNotes/Model+ViewModels/CellViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "getDescript(for:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -670,8 +94,8 @@
             filePath = "PhotoNotes/Model+ViewModels/CellViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "getImage(for:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -679,160 +103,608 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C5E1F72A-51A1-410C-8726-E481D4CF589D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoNotes/CoreData/CoreCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "unknown"
-            landmarkType = "0">
-            <Locations>
-               <Location
-                  uuid = "C5E1F72A-51A1-410C-8726-E481D4CF589D - ff55f5b379208e21"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PhotoNotes.CoreCoordinator.contextDidChange(Foundation.Notification) -&gt; ()"
-                  moduleName = "PhotoNotes"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ivanlebedev/Developer/PhotoNotes/PhotoNotes/CoreData/CoreCoordinator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "92"
-                  endingLineNumber = "92"
-                  offsetFromSymbolStart = "35">
-               </Location>
-               <Location
-                  uuid = "C5E1F72A-51A1-410C-8726-E481D4CF589D - e0af4e18fee0a17a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in PhotoNotes.CoreCoordinator.contextDidChange(Foundation.Notification) -&gt; ()"
-                  moduleName = "PhotoNotes"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ivanlebedev/Developer/PhotoNotes/PhotoNotes/CoreData/CoreCoordinator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "94"
-                  endingLineNumber = "94"
-                  offsetFromSymbolStart = "82">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "AF51FD34-700E-407C-A48F-24A33D9CCBC5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoNotes/CoreData/CoreCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F02E4162-DA66-47F9-A2CB-0748DE34F7B7"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoNotes/CoreData/CoreCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "unknown"
-            landmarkType = "0">
-            <Locations>
-               <Location
-                  uuid = "F02E4162-DA66-47F9-A2CB-0748DE34F7B7 - e0af4e18fee0a17a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in PhotoNotes.CoreCoordinator.contextDidChange(Foundation.Notification) -&gt; ()"
-                  moduleName = "PhotoNotes"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ivanlebedev/Developer/PhotoNotes/PhotoNotes/CoreData/CoreCoordinator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "95"
-                  endingLineNumber = "95"
-                  offsetFromSymbolStart = "328">
-               </Location>
-               <Location
-                  uuid = "F02E4162-DA66-47F9-A2CB-0748DE34F7B7 - e0af4e18fee0a17a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in PhotoNotes.CoreCoordinator.contextDidChange(Foundation.Notification) -&gt; ()"
-                  moduleName = "PhotoNotes"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ivanlebedev/Developer/PhotoNotes/PhotoNotes/CoreData/CoreCoordinator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "95"
-                  endingLineNumber = "95"
-                  offsetFromSymbolStart = "989">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "ED7FAB76-5E00-4D0E-96DE-CD6C03C543B5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoNotes/CoreData/CoreCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BF59367C-B1D7-4974-9BC2-C9AF35DD7B58"
+            uuid = "43B59800-CC01-452B-B2E0-97E1DC4AB871"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PhotoNotes/ViewController.swift"
+            filePath = "PhotoNotes/Model+ViewModels/CellViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
-            landmarkName = "tableView(_:didSelectRowAt:)"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "createCell(imageNew:dateNew:realAddress:realDescript:realMapCoord:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "96BA3CC7-A01E-48DB-B2FF-6E1E0C937AF3"
+            uuid = "A330D7F6-A991-4136-AD58-96D3FC2A0E05"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoNotes/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CFBF1FCE-F904-4135-BAB0-FD9FA0E4BC0D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoNotes/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A730297E-1130-462D-9486-FF53F837A324"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoNotes/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A3C45BEE-C9C6-4ABA-B733-DCA749B0D675"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoNotes/PhotoAndLocation/GeoLocationController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "locationManager(_:didUpdateLocations:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "577F9C3B-0EB8-48FF-9BA6-2D39C3349ED7"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PhotoNotes/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
-            landmarkName = "tableView(_:didSelectRowAt:)"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "addPhotoNew(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "01812659-90C5-49E1-B6CB-59541C7DD9CB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoNotes/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "addPhotoNew(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0119B351-D4B7-4CB9-9D1C-18CC6EEAEA44"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoNotes/PhotoAndLocation/GeoLocationController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "locationManager(_:didUpdateLocations:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8D43B9BF-93CA-4A53-958B-A7F95E444FB3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoNotes/PhotoAndLocation/GeoLocationController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "locationManager(_:didUpdateLocations:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8D43B9BF-93CA-4A53-958B-A7F95E444FB3 - c21c571b9191cc41"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PhotoNotes.GeoLocation.locationManager(_: __C.CLLocationManager, didUpdateLocations: Swift.Array&lt;__C.CLLocation&gt;) -&gt; ()"
+                  moduleName = "PhotoNotes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ivanlebedev/Developer/PhotoNotes/PhotoNotes/PhotoAndLocation/GeoLocationController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "109"
+                  endingLineNumber = "109"
+                  offsetFromSymbolStart = "148">
+               </Location>
+               <Location
+                  uuid = "8D43B9BF-93CA-4A53-958B-A7F95E444FB3 - 955a2c253529fb26"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;__C.CLPlacemark&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in PhotoNotes.GeoLocation.locationManager(_: __C.CLLocationManager, didUpdateLocations: Swift.Array&lt;__C.CLLocation&gt;) -&gt; ()"
+                  moduleName = "PhotoNotes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ivanlebedev/Developer/PhotoNotes/PhotoNotes/PhotoAndLocation/GeoLocationController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "110"
+                  endingLineNumber = "110"
+                  offsetFromSymbolStart = "161">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9BE0E91E-73D4-4334-821B-EF80EDE370E1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoNotes/PhotoAndLocation/GeoLocationController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "startGeoLocationProccess()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ABB0AEDB-4F8E-4B45-8A59-E9B7B65EC90F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoNotes/PhotoAndLocation/GeoLocationController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "locationManager(_:didUpdateLocations:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4D48847B-7F2F-48B9-8BAE-BD5338490E50"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoNotes/PhotoAndLocation/GeoLocationController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "startGeoLocationProccess()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "455BB5C2-1097-42B8-A920-21C0F225FEEA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoNotes/PhotoAndLocation/GeoLocationController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "endGeoLocationProccess()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B04EBA92-A1E3-42B7-803F-2A712F29748F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoNotes/PhotoAndLocation/GeoLocationController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "locationManager(_:didFailWithError:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5EF4553A-1CC7-4420-B62B-6D39A56E1BA9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoNotes/PhotoAndLocation/GeoLocationController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "locationManager(_:didFailWithError:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5387F2E2-C95C-41B3-A148-807F847E569E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoNotes/PhotoAndLocation/GeoLocationController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "endGeoLocationProccess()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "11CFD8B2-A7FE-489C-B269-F29B862E52D5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoNotes/CoreData/CoreCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "save(imageNew:dateNew:realAddress:realDescript:latitude:longitude:index:newDescr:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "53953ACB-0C83-42DC-8E53-56DB4D50447B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoNotes/CoreData/CoreCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "save(imageNew:dateNew:realAddress:realDescript:latitude:longitude:index:newDescr:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "69E4A24A-9058-4D29-9CC5-6207DB4A9C80"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoNotes/CoreData/CoreCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "save(imageNew:dateNew:realAddress:realDescript:latitude:longitude:index:newDescr:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BDD1E8B9-096D-4ABC-8072-97D3A16F525B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoNotes/CoreData/CoreCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "contextDidSave(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BDD1E8B9-096D-4ABC-8072-97D3A16F525B - b88865565a3ae58"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PhotoNotes.CoreCoordinator.contextDidSave(Foundation.Notification) -&gt; ()"
+                  moduleName = "PhotoNotes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ivanlebedev/Developer/PhotoNotes/PhotoNotes/CoreData/CoreCoordinator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "35">
+               </Location>
+               <Location
+                  uuid = "BDD1E8B9-096D-4ABC-8072-97D3A16F525B - b1b7595e32dd554"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in PhotoNotes.CoreCoordinator.contextDidSave(Foundation.Notification) -&gt; ()"
+                  moduleName = "PhotoNotes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ivanlebedev/Developer/PhotoNotes/PhotoNotes/CoreData/CoreCoordinator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "87">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9E65155C-9FBD-42DC-A2D0-2AEB9203BB33"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoNotes/CoreData/CoreCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "contextDidSave(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A0C3FD44-C556-4032-AD45-8E7E82C52E4C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoNotes/CoreData/CoreCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "contextDidSave(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "48C7D46C-50EF-4E8D-BA85-E03A4AF65A5C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoNotes/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B2AAFD75-D9B1-4AC3-92A0-70A57B85ACA3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoNotes/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B40A65EA-0164-46C0-B9C9-32CEB49A536E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoNotes/CoreData/CoreCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "contextDidSave(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B40A65EA-0164-46C0-B9C9-32CEB49A536E - b88865565a3ae58"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PhotoNotes.CoreCoordinator.contextDidSave(Foundation.Notification) -&gt; ()"
+                  moduleName = "PhotoNotes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ivanlebedev/Developer/PhotoNotes/PhotoNotes/CoreData/CoreCoordinator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "35">
+               </Location>
+               <Location
+                  uuid = "B40A65EA-0164-46C0-B9C9-32CEB49A536E - b1b7595e32dd554"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in PhotoNotes.CoreCoordinator.contextDidSave(Foundation.Notification) -&gt; ()"
+                  moduleName = "PhotoNotes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ivanlebedev/Developer/PhotoNotes/PhotoNotes/CoreData/CoreCoordinator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "87">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E542CAE8-EA14-487B-84D2-F159FA643D92"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoNotes/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BCE40B98-B18A-4F27-BD78-7538F10028CD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoNotes/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "didSelect(image:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "37312176-6F9B-4358-96C0-4DD72EC81823"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoNotes/CoreData/CoreCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "save(imageNew:dateNew:realAddress:realDescript:latitude:longitude:index:newDescr:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "24D58751-2592-410E-86E8-E4BDC571D612"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoNotes/CoreData/CoreCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "save(imageNew:dateNew:realAddress:realDescript:latitude:longitude:index:newDescr:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E8766B73-AE01-4CDC-98A0-4EBABB56B561"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoNotes/CoreData/CoreCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "save(imageNew:dateNew:realAddress:realDescript:latitude:longitude:index:newDescr:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B4349272-2514-4FD9-B5E1-BD73FDB74755"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoNotes/CoreData/CoreCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "save(imageNew:dateNew:realAddress:realDescript:latitude:longitude:index:newDescr:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F2FA406B-2969-42DA-98F7-B26693DDE3D5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoNotes/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

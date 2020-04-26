@@ -35,7 +35,7 @@ open class GeoLocation: NSObject {
         self.locationManager.delegate = self
         self.locationManager.allowsBackgroundLocationUpdates = false
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
+        self.locationManager.requestWhenInUseAuthorization()
         
     }
     
@@ -92,15 +92,17 @@ open class GeoLocation: NSObject {
     }
     
     public func startGeoLocationProccess() {
-        locationManager.requestLocation()
+        self.locationManager.requestLocation()
+        
     }
     public func endGeoLocationProccess() {
-        locationManager.stopUpdatingLocation()
+        self.locationManager.stopUpdatingLocation()
     }
 }
 
 
 extension GeoLocation:CLLocationManagerDelegate{
+    
     
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
        
@@ -123,6 +125,7 @@ extension GeoLocation:CLLocationManagerDelegate{
     }
     public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
     print("error:: \(error.localizedDescription)")
+        print("dasdffasdfasdfkadkkasdfkaksdfkaskdfkasdkflasdfklasdmflasdmflasdlfasd")
     }
     
 }

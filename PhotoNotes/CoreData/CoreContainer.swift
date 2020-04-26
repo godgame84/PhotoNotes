@@ -10,11 +10,13 @@ import Foundation
 import CoreData
 
 class CoreContainer:CoreDataStackBase {
-    func updateDescriptionOnFirstVC(newDescription: String, newIndex: IndexPath) {
-        
+    func getDataFromContext() -> [NSManagedObject] {
+        let dateToReveal: [NSManagedObject] = []
+        return dateToReveal
     }
     
-    func save(imageNew: Data, dateNew: String, realAddress: String, realDescript: String, latitude: Double, longitude: Double) -> NSManagedObject {
+    
+    func save(imageNew: Data, dateNew: String, realAddress: String, realDescript: String, latitude: Double, longitude: Double, index: Int?, newDescr:String) -> NSManagedObject {
         return NSManagedObject(context: NSManagedObjectContext.init(concurrencyType: .mainQueueConcurrencyType))
     }
     

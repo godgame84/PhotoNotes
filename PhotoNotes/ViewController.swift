@@ -59,18 +59,19 @@ class ViewController: UIViewController{
         super.viewDidLoad()
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         self.geoLocation = GeoLocation(delegate: self, presentationController: self)
+        self.dataFromCore = cellViewModel.fetchFromCoreData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
-        self.navigationController?.navigationBar.barStyle = .default
+
         super.viewDidAppear(animated)
 
         //checkLocationEnabled()
     }
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.barStyle = .default
         super.viewWillAppear(animated)
-        self.dataFromCore = cellViewModel.fetchFromCoreData()
+//        self.dataFromCore = cellViewModel.fetchFromCoreData()
     }
     
 }
@@ -97,6 +98,7 @@ extension ViewController: ImagePickerDelegate{
         dateFormatter.timeStyle = .none
         dateFormatter.locale = Locale(identifier: "ru_RUS")
         dateFormatter.setLocalizedDateFormatFromTemplate("dd-YYYY-MM")
+        self.dataFromCore = cellViewModel.fetchFromCoreData()
         cellViewModel.sendDataToVC = {[weak self] (objectFromCore) ->() in
             self?.dataFromCore.append(objectFromCore)
             return
@@ -118,15 +120,19 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate  {
   
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return   self.dataFromCore.count//cellViewModel.getCountOfRows()
+        
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        guard let cell = tableView.dequeueReusableCell(withIdentifier: "photoCellIdentifier") as? TableViewCell
         else {return UITableViewCell()}
-        
-        
+
+        cellViewModel.sendDataToVC = {[weak self] (objectFromCore) ->() in
+            self?.dataFromCore.append(objectFromCore)
+        }
         let cellFromCore = self.dataFromCore[indexPath.row]
         cell.cellLabel.text = cellFromCore.value(forKeyPath: "date") as? String
         cell.cellImageView.image = UIImage(data: cellFromCore.value(forKeyPath: "photo") as? Data  ?? Data(capacity: 2))
@@ -141,6 +147,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate  {
             return
         }
         secondViewController.sendTextButtonClosure = {[weak self] (index,text) -> ()  in
+            
             self?.cellViewModel.updateDescript(newDescription: text, newIndex: index)
             return
         }

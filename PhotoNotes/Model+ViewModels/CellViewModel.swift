@@ -16,9 +16,9 @@ protocol CoreDataStackBase {
     
     func getContext() -> NSManagedObjectContext
     
-    func save(imageNew: Data, dateNew: String, realAddress:String, realDescript:String, latitude:Double, longitude: Double) -> NSManagedObject
+    func save(imageNew: Data, dateNew: String, realAddress:String, realDescript:String, latitude:Double, longitude: Double, index: Int?, newDescr: String) -> NSManagedObject
 
-    func updateDescriptionOnFirstVC(newDescription:String, newIndex:IndexPath)
+    func getDataFromContext() -> [NSManagedObject]
 }
 
 import UIKit
@@ -34,15 +34,13 @@ class CellViewModel {
     
     public var sendDataToVC: ((_ managedcell:NSManagedObject)->())?
     
-    private var primaryContext = CoreDataStackFactory().stackOnTarget().getContext()
-    
     func createCell (imageNew: UIImage, dateNew: String, realAddress:String, realDescript:String, realMapCoord:CLLocationCoordinate2D) {
     
         cells.append(Cell(newImage: imageNew, newDate: dateNew, newAddress: realAddress,newDescript: realDescript, newLatitude: realMapCoord.latitude, newLongitude: realMapCoord.longitude ))
         
         guard let imageToSave = imageNew.pngData() else {return}
         
-        let managedCellFromCore = CoreDataStackFactory().stackOnTarget().save(imageNew: imageToSave , dateNew: dateNew, realAddress: realAddress, realDescript: realDescript, latitude: realMapCoord.latitude, longitude: realMapCoord.longitude)
+        let managedCellFromCore = CoreDataStackFactory().stackOnTarget().save(imageNew: imageToSave , dateNew: dateNew, realAddress: realAddress, realDescript: realDescript, latitude: realMapCoord.latitude, longitude: realMapCoord.longitude, index: nil, newDescr: "String")
         
         sendDataToVC?(managedCellFromCore)
         
@@ -51,7 +49,7 @@ class CellViewModel {
     }
     
     func updateDescript(newDescription:String, newIndex:IndexPath) {
-        CoreDataStackFactory().stackOnTarget().updateDescriptionOnFirstVC(newDescription: newDescription, newIndex: newIndex)
+        let updatedCell = CoreDataStackFactory().stackOnTarget().save(imageNew: Data(), dateNew: "", realAddress: "", realDescript: "", latitude: 0, longitude: 0, index: newIndex.row, newDescr: newDescription)
         delegate?.cellsDidUpdate()
     }
     
@@ -86,20 +84,7 @@ class CellViewModel {
     
     
     func fetchFromCoreData() -> [NSManagedObject] {
-        var dateToReveal: [NSManagedObject] = []
-        
-        
-        let managedcontext = self.primaryContext//appdelegate.persistentContainer.viewContext
-        
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TableCell")
-        
-        do {
-            dateToReveal = try managedcontext.fetch(fetchRequest)
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
-        }
-        
-        return dateToReveal
+        return fabric.stackOnTarget().getDataFromContext()
     }
   }
 
