@@ -55,6 +55,7 @@ class CoreCoordinator:CoreDataStackBase {
             
             let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TableCell")
             var dateToUpdate: [NSManagedObject] = []
+            self.privateContext.performAndWait {
               do {
                 
                 dateToUpdate = try self.privateContext.fetch(fetchRequest)
@@ -65,9 +66,11 @@ class CoreCoordinator:CoreDataStackBase {
           do{
               try self.privateContext.save()
           } catch let error as NSError{
-              print("Could not save afte update. \(error),\(error.userInfo)")
+              print("Could not save after update. \(error),\(error.userInfo)")
           }
+        }
             return dateToUpdate[index!]
+            
         }
         
         self.privateContext.performAndWait {

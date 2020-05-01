@@ -129,9 +129,12 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate  {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        guard let cell = tableView.dequeueReusableCell(withIdentifier: "photoCellIdentifier") as? TableViewCell
         else {return UITableViewCell()}
-
         cellViewModel.sendDataToVC = {[weak self] (objectFromCore) ->() in
             self?.dataFromCore.append(objectFromCore)
+        }
+        cellViewModel.updateDescriptionOnFVC = {[weak self] (updatedDescription, index) -> () in
+              self?.dataFromCore[index].setValue(updatedDescription, forKeyPath: "descr")
+            
         }
         let cellFromCore = self.dataFromCore[indexPath.row]
         cell.cellLabel.text = cellFromCore.value(forKeyPath: "date") as? String
