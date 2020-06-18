@@ -11,7 +11,7 @@
 		233FB0EF242A103400945AFC /* CoreDataStackFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233FB0EE242A103400945AFC /* CoreDataStackFactory.swift */; };
 		233FB0F2243365FA00945AFC /* PhotoModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 233FB0F0243365F900945AFC /* PhotoModel.xcdatamodeld */; };
 		233FB0F424336AEC00945AFC /* CoreContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233FB0F324336AEC00945AFC /* CoreContainer.swift */; };
-		233FB0F624336B3100945AFC /* CoreCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233FB0F524336B3100945AFC /* CoreCoordinator.swift */; };
+		233FB0F624336B3100945AFC /* CoreCoordinator(beta).swift in Sources */ = {isa = PBXBuildFile; fileRef = 233FB0F524336B3100945AFC /* CoreCoordinator(beta).swift */; };
 		234E724A24050AC4005DF650 /* CellViewModelSecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E724924050AC4005DF650 /* CellViewModelSecondVC.swift */; };
 		234E7250240E7A1B005DF650 /* SFProDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 234E724F240E7A1B005DF650 /* SFProDisplay-Regular.ttf */; };
 		234E7252240E7CA8005DF650 /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 234E7251240E7CA8005DF650 /* SFProDisplay-Bold.ttf */; };
@@ -23,6 +23,8 @@
 		238F4AC62334D61A000BE1EB /* CellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238F4AC52334D61A000BE1EB /* CellViewModel.swift */; };
 		23B44B04237EA96000FDCEC8 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B44B03237EA96000FDCEC8 /* TableViewCell.swift */; };
 		23B9115723953E1D00BB251B /* CellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B9115623953E1D00BB251B /* CellModel.swift */; };
+		23E58D06249163A900AAB1B2 /* TableCell+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E58D04249163A900AAB1B2 /* TableCell+CoreDataClass.swift */; };
+		23E58D07249163A900AAB1B2 /* TableCell+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E58D05249163A900AAB1B2 /* TableCell+CoreDataProperties.swift */; };
 		23EEE5E823F9C77600C3E6BA /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EEE5E723F9C77600C3E6BA /* SecondViewController.swift */; };
 		23EEE5EA23FC776D00C3E6BA /* GeoLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EEE5E923FC776D00C3E6BA /* GeoLocationController.swift */; };
 /* End PBXBuildFile section */
@@ -32,7 +34,7 @@
 		233FB0EE242A103400945AFC /* CoreDataStackFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStackFactory.swift; sourceTree = "<group>"; };
 		233FB0F1243365F900945AFC /* PhotoModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PhotoModel.xcdatamodel; sourceTree = "<group>"; };
 		233FB0F324336AEC00945AFC /* CoreContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreContainer.swift; sourceTree = "<group>"; };
-		233FB0F524336B3100945AFC /* CoreCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreCoordinator.swift; sourceTree = "<group>"; };
+		233FB0F524336B3100945AFC /* CoreCoordinator(beta).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreCoordinator(beta).swift"; sourceTree = "<group>"; };
 		234E724924050AC4005DF650 /* CellViewModelSecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellViewModelSecondVC.swift; sourceTree = "<group>"; };
 		234E724F240E7A1B005DF650 /* SFProDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Regular.ttf"; sourceTree = "<group>"; };
 		234E7251240E7CA8005DF650 /* SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
@@ -46,6 +48,8 @@
 		238F4AC52334D61A000BE1EB /* CellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellViewModel.swift; sourceTree = "<group>"; };
 		23B44B03237EA96000FDCEC8 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		23B9115623953E1D00BB251B /* CellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellModel.swift; sourceTree = "<group>"; };
+		23E58D04249163A900AAB1B2 /* TableCell+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableCell+CoreDataClass.swift"; sourceTree = "<group>"; };
+		23E58D05249163A900AAB1B2 /* TableCell+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableCell+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		23EEE5E723F9C77600C3E6BA /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		23EEE5E923FC776D00C3E6BA /* GeoLocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoLocationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,9 +110,11 @@
 			isa = PBXGroup;
 			children = (
 				233FB0EE242A103400945AFC /* CoreDataStackFactory.swift */,
-				233FB0F524336B3100945AFC /* CoreCoordinator.swift */,
+				233FB0F524336B3100945AFC /* CoreCoordinator(beta).swift */,
 				233FB0F324336AEC00945AFC /* CoreContainer.swift */,
 				233FB0F0243365F900945AFC /* PhotoModel.xcdatamodeld */,
+				23E58D04249163A900AAB1B2 /* TableCell+CoreDataClass.swift */,
+				23E58D05249163A900AAB1B2 /* TableCell+CoreDataProperties.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -127,8 +133,8 @@
 		23E516CB244B59920049D523 /* Model+ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				238F4AC52334D61A000BE1EB /* CellViewModel.swift */,
 				23B9115623953E1D00BB251B /* CellModel.swift */,
+				238F4AC52334D61A000BE1EB /* CellViewModel.swift */,
 				234E724924050AC4005DF650 /* CellViewModelSecondVC.swift */,
 			);
 			path = "Model+ViewModels";
@@ -216,18 +222,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23E58D07249163A900AAB1B2 /* TableCell+CoreDataProperties.swift in Sources */,
 				238F4AC62334D61A000BE1EB /* CellViewModel.swift in Sources */,
 				23B44B04237EA96000FDCEC8 /* TableViewCell.swift in Sources */,
 				23B9115723953E1D00BB251B /* CellModel.swift in Sources */,
 				231EF78F23C4E77C00FA4190 /* ImagePicker.swift in Sources */,
 				23EEE5E823F9C77600C3E6BA /* SecondViewController.swift in Sources */,
-				233FB0F624336B3100945AFC /* CoreCoordinator.swift in Sources */,
+				233FB0F624336B3100945AFC /* CoreCoordinator(beta).swift in Sources */,
 				238F4AB62334CF48000BE1EB /* ViewController.swift in Sources */,
 				234E724A24050AC4005DF650 /* CellViewModelSecondVC.swift in Sources */,
 				23EEE5EA23FC776D00C3E6BA /* GeoLocationController.swift in Sources */,
 				233FB0F2243365FA00945AFC /* PhotoModel.xcdatamodeld in Sources */,
 				238F4AB42334CF48000BE1EB /* AppDelegate.swift in Sources */,
 				233FB0F424336AEC00945AFC /* CoreContainer.swift in Sources */,
+				23E58D06249163A900AAB1B2 /* TableCell+CoreDataClass.swift in Sources */,
 				233FB0EF242A103400945AFC /* CoreDataStackFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

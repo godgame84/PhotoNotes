@@ -32,7 +32,8 @@ class CoreCoordinator:CoreDataStackBase {
         context.persistentStoreCoordinator = psc
         
         self.mainContext = context
-        self.privateContext.parent = self.mainContext
+//        self.privateContext.parent = self.mainContext
+//        self.privateContext.automaticallyMergesChangesFromParent = true
     }
     
     func getContext () -> NSManagedObjectContext{
@@ -43,23 +44,27 @@ class CoreCoordinator:CoreDataStackBase {
     
     func save(imageNew: Data, dateNew: String, realAddress: String, realDescript: String, latitude: Double, longitude: Double, index: Int?, newDescr: String) -> NSManagedObject {
         
+        guard let entityDescription = NSEntityDescription.entity(forEntityName: "TableCell", in: self.privateContext) else {fatalError("Can't find entity")}
+        
+        
+        
         NotificationCenter.default.addObserver(self, selector: #selector(contextDidSave(_:)), name: Notification.Name.NSManagedObjectContextDidSave, object: self.privateContext)
         
 //        NotificationCenter.default.addObserver(self, selector: #selector(contextDidChange(_:)), name: Notification.Name.NSManagedObjectContextObjectsDidChange, object: self.privateContext)
-
-        guard let entityDescription = NSEntityDescription.entity(forEntityName: "TableCell", in: self.privateContext) else {fatalError("Can't find entity")}
-        
         let managedCell = NSManagedObject(entity: entityDescription, insertInto: self.privateContext)
         
         if index != nil {
             
             let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TableCell")
-            var dateToUpdate: [NSManagedObject] = []
+            let dateToUpdate: [NSManagedObject] = []
             self.privateContext.performAndWait {
+//                let dateToUpdate: [NSManagedObject] = try! privateContext.fetch(fetchRequest)
+//                let dataCore = dateToUpdate[0]
               do {
                 
-                dateToUpdate = try self.privateContext.fetch(fetchRequest)
+               let dateToUpdate: [NSManagedObject] = try privateContext.fetch(fetchRequest)
                   dateToUpdate[index!].setValue(newDescr, forKeyPath: "descr")
+                
               } catch let error as NSError {
               print("Could not fetch. \(error), \(error.userInfo)")
               }
@@ -117,36 +122,6 @@ class CoreCoordinator:CoreDataStackBase {
         }
         
     }
-    //    func updateDescriptionOnFirstVC(newDescription:String, newIndex:IndexPath) {
-    //            NotificationCenter.default.addObserver(self, selector: #selector(contextDidChange(_:)), name: Notification.Name.NSManagedObjectContextObjectsDidChange, object: self.mainContext)
-    //            var dateToUpdate: [NSManagedObject] = []
-    //            let managedcontext = self.mainContext//appdelegate.persistentContainer.viewContext
-    //
-    //            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TableCell")
-    //
-    //            do {
-    //                dateToUpdate = try managedcontext.fetch(fetchRequest)
-    //                dateToUpdate[newIndex.row].setValue(newDescription, forKeyPath: "descr")
-    //            } catch let error as NSError {
-    //            print("Could not fetch. \(error), \(error.userInfo)")
-    //            }
-    //        do{
-    //            try self.mainContext.save()
-    //        } catch let error as NSError{
-    //            print("Could not save afte update. \(error),\(error.userInfo)")
-    //        }
-    //
-    //    }
-//        @objc func contextDidChange(_ notififcation: Notification){
-//
-//            self.mainContext.perform {
-//                do{
-//                try self.mainContext.save()
-//                } catch let error as NSError{
-//                    print("Could not save afte update.\(error),\(error.userInfo)")
-//                }
-//            }
-//        }
-
+   
 }
 

@@ -24,7 +24,7 @@ class ViewController: UIViewController{
     
     var dataFromCore: [NSManagedObject] = []
     
-    
+//    var cells = []
     // - MARK: Private Properties
    
     private var cellViewModel = CellViewModel()
@@ -56,10 +56,11 @@ class ViewController: UIViewController{
     // - MARK: View Life Cycle
     
     override func viewDidLoad() {
+        self.dataFromCore = cellViewModel.fetchFromCoreData()
         super.viewDidLoad()
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         self.geoLocation = GeoLocation(delegate: self, presentationController: self)
-        self.dataFromCore = cellViewModel.fetchFromCoreData()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -69,8 +70,10 @@ class ViewController: UIViewController{
         //checkLocationEnabled()
     }
     override func viewWillAppear(_ animated: Bool) {
+        
         self.navigationController?.navigationBar.barStyle = .default
         super.viewWillAppear(animated)
+        
 //        self.dataFromCore = cellViewModel.fetchFromCoreData()
     }
     
@@ -99,10 +102,14 @@ extension ViewController: ImagePickerDelegate{
         dateFormatter.locale = Locale(identifier: "ru_RUS")
         dateFormatter.setLocalizedDateFormatFromTemplate("dd-YYYY-MM")
         self.dataFromCore = cellViewModel.fetchFromCoreData()
+        
         cellViewModel.sendDataToVC = {[weak self] (objectFromCore) ->() in
             self?.dataFromCore.append(objectFromCore)
             return
         }
+        
+      
+        
         cellViewModel.createCell(imageNew: image ?? defaultPicture, dateNew: dateFormatter.string(from: Date()),  realAddress: geoLocation.formAddres(), realDescript: textFromSecondVC, realMapCoord: geoLocation.formCoordinates())
    
     }
@@ -127,15 +134,15 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate  {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       guard let cell = tableView.dequeueReusableCell(withIdentifier: "photoCellIdentifier") as? TableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "photoCellIdentifier", for: indexPath) as? TableViewCell
         else {return UITableViewCell()}
-        cellViewModel.sendDataToVC = {[weak self] (objectFromCore) ->() in
-            self?.dataFromCore.append(objectFromCore)
-        }
-        cellViewModel.updateDescriptionOnFVC = {[weak self] (updatedDescription, index) -> () in
-              self?.dataFromCore[index].setValue(updatedDescription, forKeyPath: "descr")
-            
-        }
+//        cellViewModel.sendDataToVC = {[weak self] (objectFromCore) ->() in
+//            self?.dataFromCore.append(objectFromCore)
+//        }
+//        cellViewModel.updateDescriptionOnFVC = {[weak self] (updatedDescription, index) -> () in
+//              self?.dataFromCore[index].setValue(updatedDescription, forKeyPath: "descr")
+//
+//        }
         let cellFromCore = self.dataFromCore[indexPath.row]
         cell.cellLabel.text = cellFromCore.value(forKeyPath: "date") as? String
         cell.cellImageView.image = UIImage(data: cellFromCore.value(forKeyPath: "photo") as? Data  ?? Data(capacity: 2))
@@ -154,6 +161,12 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate  {
             self?.cellViewModel.updateDescript(newDescription: text, newIndex: index)
             return
         }
+        
+        
+        cellViewModel.updateDescriptionOnFVC = {[weak self] (updatedDescription, index) -> () in
+                  self?.dataFromCore[0].setValue(updatedDescription, forKeyPath: "descr")
+                  return
+              }
         self.navigationController?.pushViewController(secondViewController, animated: true)
         secondViewController.setCellSecondVC(cellFromFirstVC: cellViewModel.createDetailViewModel(for: indexPath)) 
     }

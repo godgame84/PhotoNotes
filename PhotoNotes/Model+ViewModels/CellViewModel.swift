@@ -49,8 +49,10 @@ class CellViewModel {
     }
     
     func updateDescript(newDescription:String, newIndex:IndexPath) {
-        let updatedCell = CoreDataStackFactory().stackOnTarget().save(imageNew: Data(), dateNew: "", realAddress: "", realDescript: "", latitude: 0, longitude: 0, index: newIndex.row, newDescr: newDescription)
+        CoreDataStackFactory().stackOnTarget().save(imageNew: Data(), dateNew: "", realAddress: "", realDescript: "", latitude: 0, longitude: 0, index: newIndex.row, newDescr: newDescription)
+        
         updateDescriptionOnFVC?(newDescription,newIndex.row)
+        
         delegate?.cellsDidUpdate()
     }
     

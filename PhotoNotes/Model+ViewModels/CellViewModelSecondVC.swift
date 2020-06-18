@@ -23,39 +23,39 @@ class AnnotationForMap: NSObject, MKAnnotation {
 }
 
 class CellViewModelSecondVC {
-    
-    let cell: Cell
+
+    private var fabric = CoreDataStackFactory()
     let indexPath:IndexPath
-    let annotation:AnnotationForMap
+
     
     
    
     
     init(newDescr: String, newImage: UIImage, newIndexPath:IndexPath, newMapCoordinates:CLLocationCoordinate2D, newAddr:String){
-    cell = (Cell(newImage: newImage, newDate: "", newAddress: newAddr, newDescript: newDescr, newLatitude: newMapCoordinates.latitude, newLongitude: newMapCoordinates.longitude))
     indexPath=newIndexPath
-         annotation = AnnotationForMap(coordinate: CLLocationCoordinate2D(latitude: cell.MapCoord.latitude, longitude: cell.MapCoord.longitude), title: cell.address, subtitle: cell.address)
+        
     }
     
     var getAnnotation: AnnotationForMap{
+        let annotation = AnnotationForMap(coordinate: self.getMapCoord, title: self.getAddress, subtitle: self.getAddress)
         return annotation
     }
     
     var getDescription: String  {
-        return cell.descript
+         return fabric.stackOnTarget().getDataFromContext()[indexPath.row].value(forKeyPath: "descr") as! String
     }
 
     var getImage: UIImage  {
-        return cell.photo
+         return UIImage(data: fabric.stackOnTarget().getDataFromContext()[indexPath.row].value(forKeyPath: "photo") as! Data)!
       }
     var getIndexPath: IndexPath {
         return indexPath
     }
     var getMapCoord: CLLocationCoordinate2D {
-        return CLLocationCoordinate2D(latitude: cell.MapCoord.latitude, longitude: cell.MapCoord.longitude)
+        return CLLocationCoordinate2D(latitude:  fabric.stackOnTarget().getDataFromContext()[indexPath.row].value(forKeyPath: "latitude") as! Double, longitude:  fabric.stackOnTarget().getDataFromContext()[indexPath.row].value(forKeyPath: "longitude") as! Double)
        }
     var getAddress: String{
-        return cell.address
+       return fabric.stackOnTarget().getDataFromContext()[indexPath.row].value(forKeyPath: "address") as! String
     }
     
 }
