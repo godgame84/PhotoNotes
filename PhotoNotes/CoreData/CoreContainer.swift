@@ -17,17 +17,6 @@ class CoreContainer:CoreDataStackBase {
             
             self.modelName = "PhotoModel"
 
-    //         guard let apppDelegate = UIApplication.shared.delegate as? AppDelegate else {
-    //                    self.mainContext = NSManagedObjectContext.init(concurrencyType: NSManagedObjectContextConcurrencyType.mainQueueConcurrencyType)
-    //                    return
-    //               }
-    //
-    //               let managedContext = apppDelegate.persistentContainer.viewContext
-    //
-    //
-    //
-    //            self.mainContext = managedContext
-    //        return
             }
     
    
@@ -53,12 +42,11 @@ class CoreContainer:CoreDataStackBase {
         return self.mainContext
     }
     
-    func getDataFromContext() -> [NSManagedObject] {
-          var dateToReveal: [NSManagedObject] = []
+    func getDataFromContext() -> [TableCell] {
+          var dateToReveal: [TableCell] = []
                   
           let managedContext = self.mainContext
           
-         // let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TableCell")
         let fetchRequest : NSFetchRequest<TableCell> = TableCell.fetchRequest()
           do {
               dateToReveal = try managedContext.fetch(fetchRequest)
@@ -69,27 +57,17 @@ class CoreContainer:CoreDataStackBase {
           return dateToReveal
       }
       
-      func save(imageNew: Data, dateNew: String, realAddress: String, realDescript: String, latitude: Double, longitude: Double, index: Int?, newDescr:String) -> NSManagedObject {
-          
-//        let entity = NSEntityDescription.entity(forEntityName: "TableCell", in: self.mainContext)!
+      func save(imageNew: Data, dateNew: String, realAddress: String, realDescript: String, latitude: Double, longitude: Double, index: Int?, newDescr:String) -> TableCell {
 
         let managedCell = TableCell(context:self.mainContext)
         
-//        let managedCell = NSManagedObject(entity: entity, insertInto: self.mainContext)
-         
         managedCell.address = realAddress
         managedCell.date = dateNew
         managedCell.descr = realDescript
         managedCell.latitude = latitude
         managedCell.longitude = longitude
         managedCell.photo = imageNew
-//        managedCell.setValue(dateNew, forKeyPath: "date")
-//        managedCell.setValue(imageNew, forKeyPath: "photo")
-//        managedCell.setValue(realAddress, forKeyPath: "address")
-//        managedCell.setValue(realDescript, forKeyPath: "descr")
-//        managedCell.setValue(longitude, forKeyPath: "longitude")
-//        managedCell.setValue(latitude, forKey: "latitude")
-        
+
         do {
             try self.mainContext.save()
         } catch let error as NSError {

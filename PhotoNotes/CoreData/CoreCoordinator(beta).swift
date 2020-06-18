@@ -42,7 +42,7 @@ class CoreCoordinator:CoreDataStackBase {
         return self.mainContext
     }
     
-    func save(imageNew: Data, dateNew: String, realAddress: String, realDescript: String, latitude: Double, longitude: Double, index: Int?, newDescr: String) -> NSManagedObject {
+    func save(imageNew: Data, dateNew: String, realAddress: String, realDescript: String, latitude: Double, longitude: Double, index: Int?, newDescr: String) -> TableCell {
         
         guard let entityDescription = NSEntityDescription.entity(forEntityName: "TableCell", in: self.privateContext) else {fatalError("Can't find entity")}
         
@@ -51,11 +51,11 @@ class CoreCoordinator:CoreDataStackBase {
         NotificationCenter.default.addObserver(self, selector: #selector(contextDidSave(_:)), name: Notification.Name.NSManagedObjectContextDidSave, object: self.privateContext)
         
 //        NotificationCenter.default.addObserver(self, selector: #selector(contextDidChange(_:)), name: Notification.Name.NSManagedObjectContextObjectsDidChange, object: self.privateContext)
-        let managedCell = NSManagedObject(entity: entityDescription, insertInto: self.privateContext)
+        let managedCell = TableCell(entity: entityDescription, insertInto: self.privateContext)
         
         if index != nil {
             
-            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TableCell")
+            let fetchRequest = NSFetchRequest<TableCell>(entityName: "TableCell")
             let dateToUpdate: [NSManagedObject] = []
             self.privateContext.performAndWait {
 //                let dateToUpdate: [NSManagedObject] = try! privateContext.fetch(fetchRequest)
@@ -74,7 +74,7 @@ class CoreCoordinator:CoreDataStackBase {
               print("Could not save after update. \(error),\(error.userInfo)")
           }
         }
-            return dateToUpdate[index!]
+            
             
         }
         
@@ -97,9 +97,9 @@ class CoreCoordinator:CoreDataStackBase {
         return managedCell
     }
     
-    func getDataFromContext() -> [NSManagedObject]   {
-        var dateToReveal: [NSManagedObject] = []
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "TableCell")
+    func getDataFromContext() -> [TableCell]   {
+        var dateToReveal: [TableCell] = []
+        let fetchRequest = NSFetchRequest<TableCell>(entityName: "TableCell")
         
         do{
             dateToReveal = try self.mainContext.fetch(fetchRequest)

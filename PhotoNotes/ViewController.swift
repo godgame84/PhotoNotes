@@ -22,9 +22,8 @@ class ViewController: UIViewController{
     var higlightenIndex: IndexPath?
     var fabric = CoreDataStackFactory()
     
-    var dataFromCore: [NSManagedObject] = []
+    var dataFromCore: [TableCell] = []
     
-//    var cells = []
     // - MARK: Private Properties
    
     private var cellViewModel = CellViewModel()
@@ -50,7 +49,6 @@ class ViewController: UIViewController{
         geoLocation.startGeoLocationProccess()
         imagePicker.present(from: tableCellsView)
         geoLocation.endGeoLocationProccess()
-            //model.createCell()
     }
 
     // - MARK: View Life Cycle
@@ -66,15 +64,13 @@ class ViewController: UIViewController{
     override func viewDidAppear(_ animated: Bool) {
 
         super.viewDidAppear(animated)
-
-        //checkLocationEnabled()
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         
         self.navigationController?.navigationBar.barStyle = .default
         super.viewWillAppear(animated)
         
-//        self.dataFromCore = cellViewModel.fetchFromCoreData()
     }
     
 }
@@ -96,15 +92,12 @@ extension ViewController: ImagePickerDelegate{
         if image == nil {
             return
         }
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .none
-        dateFormatter.locale = Locale(identifier: "ru_RUS")
-        dateFormatter.setLocalizedDateFormatFromTemplate("dd-YYYY-MM")
+        let dateFormatter = cellViewModel.getDateFormatter
+       
         self.dataFromCore = cellViewModel.fetchFromCoreData()
         
         cellViewModel.sendDataToVC = {[weak self] (objectFromCore) ->() in
-            self?.dataFromCore.append(objectFromCore)
+            self?.dataFromCore.append(objectFromCore as! TableCell)
             return
         }
         
@@ -128,7 +121,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate  {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return   self.dataFromCore.count//cellViewModel.getCountOfRows()
+        return   self.dataFromCore.count
         
     }
     

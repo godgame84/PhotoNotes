@@ -16,9 +16,9 @@ protocol CoreDataStackBase {
     
     func getContext() -> NSManagedObjectContext
     
-    func save(imageNew: Data, dateNew: String, realAddress:String, realDescript:String, latitude:Double, longitude: Double, index: Int?, newDescr: String) -> NSManagedObject
+    func save(imageNew: Data, dateNew: String, realAddress:String, realDescript:String, latitude:Double, longitude: Double, index: Int?, newDescr: String) -> TableCell
 
-    func getDataFromContext() -> [NSManagedObject]
+    func getDataFromContext() -> [TableCell]
 }
 
 import UIKit
@@ -28,13 +28,29 @@ import MapKit
 import CoreData
 
 class CellViewModel {
-//    private var cells = [Cell]()
+
+    // - MARK: Public properties
+    
     weak var delegate:ModelDelegate?
-    private var fabric = CoreDataStackFactory()
     
     public var sendDataToVC: ((_ managedcell:NSManagedObject)->())?
     
     public var updateDescriptionOnFVC: ((_ managedDescript:String, _ index: Int)->())?
+    
+    var getDateFormatter: DateFormatter  {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = Locale(identifier: "ru_RUS")
+        dateFormatter.setLocalizedDateFormatFromTemplate("dd-YYYY-MM")
+        return dateFormatter
+    }
+    
+    // - MARK: Private properties
+    
+    private var fabric = CoreDataStackFactory()
+    
+    // - MARK: Public methods
     
     func createCell (imageNew: UIImage, dateNew: String, realAddress:String, realDescript:String, realMapCoord:CLLocationCoordinate2D) {
     
@@ -80,16 +96,11 @@ class CellViewModel {
     
     
     
-    func fetchFromCoreData() -> [NSManagedObject] {
+    func fetchFromCoreData() -> [TableCell] {
         return fabric.stackOnTarget().getDataFromContext()
     }
   }
 
-//extension coreDataFacroty{
-//    func chooseFactory(<#parameters#>) -> <#return type#> {
-//        <#function body#>
-//    }
-//}
 
 
 
