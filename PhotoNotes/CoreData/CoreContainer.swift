@@ -11,15 +11,12 @@ import CoreData
 import UIKit
 
 class CoreContainer:CoreDataStackBase {
+    
+    // - MARK: Private properties
+    
+    private var fetchSortDescriptor = NSSortDescriptor(key: #keyPath(TableCell.date), ascending: true)
+    
     private var modelName: String
-    
-    init() {
-            
-            self.modelName = "PhotoModel"
-
-            }
-    
-   
     
     private lazy var mainContext : NSManagedObjectContext = {
         return self.storeContainer.viewContext
@@ -36,7 +33,11 @@ class CoreContainer:CoreDataStackBase {
         return container
     }()
     
-    
+    init() {
+              
+              self.modelName = "PhotoModel"
+
+              }
 
     func getContext () -> NSManagedObjectContext{
         return self.mainContext
@@ -48,6 +49,7 @@ class CoreContainer:CoreDataStackBase {
           let managedContext = self.mainContext
           
         let fetchRequest : NSFetchRequest<TableCell> = TableCell.fetchRequest()
+//        fetchRequest.sortDescriptors = [self.fetchSortDescriptor]
           do {
               dateToReveal = try managedContext.fetch(fetchRequest)
           }   catch let error as NSError{
@@ -57,9 +59,10 @@ class CoreContainer:CoreDataStackBase {
           return dateToReveal
       }
       
-      func save(imageNew: Data, dateNew: String, realAddress: String, realDescript: String, latitude: Double, longitude: Double, index: Int?, newDescr:String) -> TableCell {
+      func save(imageNew: Data, dateNew: String, realAddress: String, realDescript: String, latitude: Double, longitude: Double, index: IndexPath?, newDescr:String) -> TableCell {
 
-        let managedCell = TableCell(context:self.mainContext)
+        let entityDescr = NSEntityDescription.entity(forEntityName: "TableCell", in: self.mainContext)!
+        let managedCell = TableCell(entity: entityDescr, insertInto: self.mainContext)
         
         managedCell.address = realAddress
         managedCell.date = dateNew
@@ -75,13 +78,6 @@ class CoreContainer:CoreDataStackBase {
         }
         return managedCell
       }
-      
-
-
-
-
-
-
 }
 
 

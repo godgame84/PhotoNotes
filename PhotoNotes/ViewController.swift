@@ -22,7 +22,9 @@ class ViewController: UIViewController{
     var higlightenIndex: IndexPath?
     var fabric = CoreDataStackFactory()
     
-    var dataFromCore: [TableCell] = []
+
+    
+    
     
     // - MARK: Private Properties
    
@@ -49,12 +51,13 @@ class ViewController: UIViewController{
         geoLocation.startGeoLocationProccess()
         imagePicker.present(from: tableCellsView)
         geoLocation.endGeoLocationProccess()
+        
     }
-
+    
     // - MARK: View Life Cycle
     
     override func viewDidLoad() {
-        self.dataFromCore = cellViewModel.fetchFromCoreData()
+        cellViewModel.fetchFromCoreData()
         super.viewDidLoad()
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         self.geoLocation = GeoLocation(delegate: self, presentationController: self)
@@ -94,18 +97,16 @@ extension ViewController: ImagePickerDelegate{
         }
         let dateFormatter = cellViewModel.getDateFormatter
        
-        self.dataFromCore = cellViewModel.fetchFromCoreData()
+//        self.dataFromCore = cellViewModel.fetchFromCoreData()
         
-        cellViewModel.sendDataToVC = {[weak self] (objectFromCore) ->() in
-            self?.dataFromCore.append(objectFromCore as! TableCell)
-            return
-        }
         
-      
+        
+     
         
         cellViewModel.createCell(imageNew: image ?? defaultPicture, dateNew: dateFormatter.string(from: Date()),  realAddress: geoLocation.formAddres(), realDescript: textFromSecondVC, realMapCoord: geoLocation.formCoordinates())
    
     }
+    
 }
 
 extension ViewController: GeoLocationDelegate{
@@ -121,7 +122,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate  {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return   self.dataFromCore.count
+        return   cellViewModel.getDataFromCore().count
         
     }
     
@@ -136,7 +137,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate  {
 //              self?.dataFromCore[index].setValue(updatedDescription, forKeyPath: "descr")
 //
 //        }
-        let cellFromCore = self.dataFromCore[indexPath.row]
+        let cellFromCore = cellViewModel.getDataFromCore()[indexPath.row]
         cell.cellLabel.text = cellFromCore.value(forKeyPath: "date") as? String
         cell.cellImageView.image = UIImage(data: cellFromCore.value(forKeyPath: "photo") as? Data  ?? Data(capacity: 2))
         cell.cellGeo.text = cellFromCore.value(forKeyPath: "address") as? String
@@ -155,11 +156,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate  {
             return
         }
         
-        
-        cellViewModel.updateDescriptionOnFVC = {[weak self] (updatedDescription, index) -> () in
-                  self?.dataFromCore[0].setValue(updatedDescription, forKeyPath: "descr")
-                  return
-              }
         self.navigationController?.pushViewController(secondViewController, animated: true)
         secondViewController.setCellSecondVC(cellFromFirstVC: cellViewModel.createDetailViewModel(for: indexPath)) 
     }

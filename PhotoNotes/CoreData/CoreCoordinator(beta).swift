@@ -42,7 +42,7 @@ class CoreCoordinator:CoreDataStackBase {
         return self.mainContext
     }
     
-    func save(imageNew: Data, dateNew: String, realAddress: String, realDescript: String, latitude: Double, longitude: Double, index: Int?, newDescr: String) -> TableCell {
+    func save(imageNew: Data, dateNew: String, realAddress: String, realDescript: String, latitude: Double, longitude: Double, index: IndexPath?, newDescr: String) -> TableCell {
         
         guard let entityDescription = NSEntityDescription.entity(forEntityName: "TableCell", in: self.privateContext) else {fatalError("Can't find entity")}
         
@@ -63,7 +63,7 @@ class CoreCoordinator:CoreDataStackBase {
               do {
                 
                let dateToUpdate: [NSManagedObject] = try privateContext.fetch(fetchRequest)
-                  dateToUpdate[index!].setValue(newDescr, forKeyPath: "descr")
+                dateToUpdate[index!.row].setValue(newDescr, forKeyPath: "descr")
                 
               } catch let error as NSError {
               print("Could not fetch. \(error), \(error.userInfo)")
