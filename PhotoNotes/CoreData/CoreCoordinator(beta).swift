@@ -53,30 +53,7 @@ class CoreCoordinator:CoreDataStackBase {
 //        NotificationCenter.default.addObserver(self, selector: #selector(contextDidChange(_:)), name: Notification.Name.NSManagedObjectContextObjectsDidChange, object: self.privateContext)
         let managedCell = TableCell(entity: entityDescription, insertInto: self.privateContext)
         
-        if index != nil {
-            
-            let fetchRequest = NSFetchRequest<TableCell>(entityName: "TableCell")
-            let dateToUpdate: [NSManagedObject] = []
-            self.privateContext.performAndWait {
-//                let dateToUpdate: [NSManagedObject] = try! privateContext.fetch(fetchRequest)
-//                let dataCore = dateToUpdate[0]
-              do {
-                
-               let dateToUpdate: [NSManagedObject] = try privateContext.fetch(fetchRequest)
-                dateToUpdate[index!.row].setValue(newDescr, forKeyPath: "descr")
-                
-              } catch let error as NSError {
-              print("Could not fetch. \(error), \(error.userInfo)")
-              }
-          do{
-              try self.privateContext.save()
-          } catch let error as NSError{
-              print("Could not save after update. \(error),\(error.userInfo)")
-          }
-        }
-            
-            
-        }
+       
         
         self.privateContext.performAndWait {
             

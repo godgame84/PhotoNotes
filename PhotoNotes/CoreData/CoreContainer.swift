@@ -45,13 +45,11 @@ class CoreContainer:CoreDataStackBase {
     
     func getDataFromContext() -> [TableCell] {
           var dateToReveal: [TableCell] = []
-                  
-          let managedContext = self.mainContext
           
         let fetchRequest : NSFetchRequest<TableCell> = TableCell.fetchRequest()
 //        fetchRequest.sortDescriptors = [self.fetchSortDescriptor]
           do {
-              dateToReveal = try managedContext.fetch(fetchRequest)
+            dateToReveal = try self.mainContext.fetch(fetchRequest)
           }   catch let error as NSError{
               print("Could not fetch. \(error), \(error.userInfo)")
           }
@@ -61,8 +59,8 @@ class CoreContainer:CoreDataStackBase {
       
       func save(imageNew: Data, dateNew: String, realAddress: String, realDescript: String, latitude: Double, longitude: Double, index: IndexPath?, newDescr:String) -> TableCell {
 
-        let entityDescr = NSEntityDescription.entity(forEntityName: "TableCell", in: self.mainContext)!
-        let managedCell = TableCell(entity: entityDescr, insertInto: self.mainContext)
+     
+        let managedCell = TableCell(context: self.mainContext)
         
         managedCell.address = realAddress
         managedCell.date = dateNew

@@ -47,6 +47,7 @@ class ViewController: UIViewController{
     // - MARK: IBActions
     
     @IBAction func addPhotoNew(_ sender: UIButton) {
+        
         geoLocation.checkAutorization()
         geoLocation.startGeoLocationProccess()
         imagePicker.present(from: tableCellsView)
@@ -57,8 +58,9 @@ class ViewController: UIViewController{
     // - MARK: View Life Cycle
     
     override func viewDidLoad() {
-        cellViewModel.fetchFromCoreData()
+       
         super.viewDidLoad()
+        cellViewModel.fetchFromCoreData()
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         self.geoLocation = GeoLocation(delegate: self, presentationController: self)
         
@@ -96,12 +98,8 @@ extension ViewController: ImagePickerDelegate{
             return
         }
         let dateFormatter = cellViewModel.getDateFormatter
-       
-//        self.dataFromCore = cellViewModel.fetchFromCoreData()
-        
-        
-        
-     
+
+    
         
         cellViewModel.createCell(imageNew: image ?? defaultPicture, dateNew: dateFormatter.string(from: Date()),  realAddress: geoLocation.formAddres(), realDescript: textFromSecondVC, realMapCoord: geoLocation.formCoordinates())
    
@@ -130,13 +128,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate  {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "photoCellIdentifier", for: indexPath) as? TableViewCell
         else {return UITableViewCell()}
-//        cellViewModel.sendDataToVC = {[weak self] (objectFromCore) ->() in
-//            self?.dataFromCore.append(objectFromCore)
-//        }
-//        cellViewModel.updateDescriptionOnFVC = {[weak self] (updatedDescription, index) -> () in
-//              self?.dataFromCore[index].setValue(updatedDescription, forKeyPath: "descr")
-//
-//        }
         let cellFromCore = cellViewModel.getDataFromCore()[indexPath.row]
         cell.cellLabel.text = cellFromCore.value(forKeyPath: "date") as? String
         cell.cellImageView.image = UIImage(data: cellFromCore.value(forKeyPath: "photo") as? Data  ?? Data(capacity: 2))
@@ -148,11 +139,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate  {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let secondViewController = storyboard.instantiateViewController(withIdentifier: String(describing: SecondViewController.self)) as? SecondViewController else {
-            return
-        }
-        secondViewController.sendTextButtonClosure = {[weak self] (index,text) -> ()  in
-            
-            self?.cellViewModel.updateDescript(newDescription: text, newIndex: index)
             return
         }
         

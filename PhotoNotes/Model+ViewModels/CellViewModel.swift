@@ -50,24 +50,29 @@ class CellViewModel {
     
     // - MARK: Private properties
     
-    private var fabric = CoreDataStackFactory()
+    private var chosenStack = CoreDataStackFactory().stackOnTarget()
     
-    private var dataFromCore: [TableCell] = []
+   // private var dataFromCore: [TableCell] = []
+    
+    private lazy var dataFromCore: [TableCell] = {
+        return self.getDataFromCore()
+    }()
     
     // - MARK: Public methods
     
     func createCell (imageNew: UIImage, dateNew: String, realAddress:String, realDescript:String, realMapCoord:CLLocationCoordinate2D) {
-    
+  
         guard let imageToSave = imageNew.pngData() else {return}
         
-        let managedCellFromCore = CoreDataStackFactory().stackOnTarget().save(imageNew: imageToSave , dateNew: dateNew, realAddress: realAddress, realDescript: realDescript, latitude: realMapCoord.latitude, longitude: realMapCoord.longitude, index: nil, newDescr: "String")
         
+        
+        let managedCellFromCore = chosenStack.save(imageNew: imageToSave , dateNew: dateNew, realAddress: realAddress, realDescript: realDescript, latitude: realMapCoord.latitude, longitude: realMapCoord.longitude, index: nil, newDescr: "String")
         dataFromCore.append(managedCellFromCore)
         delegate?.cellsDidUpdate()
     }
     
     func updateDescript(newDescription:String, newIndex:IndexPath) {
-        CoreDataStackFactory().stackOnTarget().save(imageNew: Data(), dateNew: "", realAddress: "", realDescript: "", latitude: 0, longitude: 0, index: newIndex, newDescr: newDescription)
+        chosenStack.save(imageNew: Data(), dateNew: "", realAddress: "", realDescript: "", latitude: 0, longitude: 0, index: newIndex, newDescr: newDescription)
         
         updateDescriptionOnFVC?(newDescription,newIndex.row)
         
@@ -75,17 +80,17 @@ class CellViewModel {
     }
     
     func getDate( for indexPath: IndexPath) -> String  {
-        return fabric.stackOnTarget().getDataFromContext()[indexPath.row].value(forKeyPath: "date") as! String
+        return chosenStack.getDataFromContext()[indexPath.row].value(forKeyPath: "date") as! String
     }
     
     func getImage( for indexPath: IndexPath) -> UIImage  {
-        return UIImage(data: fabric.stackOnTarget().getDataFromContext()[indexPath.row].value(forKeyPath: "photo") as! Data)!
+        return UIImage(data: chosenStack.getDataFromContext()[indexPath.row].value(forKeyPath: "photo") as! Data)!
       }
     func getAddress(for indexPath: IndexPath) -> String {
-         return fabric.stackOnTarget().getDataFromContext()[indexPath.row].value(forKeyPath: "address") as! String
+         return chosenStack.getDataFromContext()[indexPath.row].value(forKeyPath: "address") as! String
     }
      func getDescript(for indexPath: IndexPath) -> String {
-        return fabric.stackOnTarget().getDataFromContext()[indexPath.row].value(forKeyPath: "descr") as! String
+        return chosenStack.getDataFromContext()[indexPath.row].value(forKeyPath: "descr") as! String
        }
     
     func getDataFromCore() -> [TableCell] {
@@ -101,7 +106,7 @@ class CellViewModel {
     
     
     func fetchFromCoreData()  {
-        dataFromCore = fabric.stackOnTarget().getDataFromContext()
+        dataFromCore = chosenStack.getDataFromContext()
     }
   }
 
