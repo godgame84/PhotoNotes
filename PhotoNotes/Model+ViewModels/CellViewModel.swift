@@ -72,9 +72,12 @@ class CellViewModel {
     }
     
     func updateDescript(newDescription:String, newIndex:IndexPath) {
+       self.dataFromCore[newIndex.row].descr = newDescription
         chosenStack.save(imageNew: Data(), dateNew: "", realAddress: "", realDescript: "", latitude: 0, longitude: 0, index: newIndex, newDescr: newDescription)
         
-        updateDescriptionOnFVC?(newDescription,newIndex.row)
+        
+        
+//        updateDescriptionOnFVC?(newDescription,newIndex.row)
         
         delegate?.cellsDidUpdate()
     }

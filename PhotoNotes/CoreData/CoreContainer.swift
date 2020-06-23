@@ -62,6 +62,19 @@ class CoreContainer:CoreDataStackBase {
      
         let managedCell = TableCell(context: self.mainContext)
         
+        if index != nil {
+            guard self.mainContext.hasChanges else {
+                return managedCell
+            }
+            do {
+                try self.mainContext.save()
+            } catch let error as NSError {
+                print("Can't save after change. \(error), \(error.userInfo)")
+                
+            }
+            return managedCell
+        }
+        
         managedCell.address = realAddress
         managedCell.date = dateNew
         managedCell.descr = realDescript

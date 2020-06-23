@@ -142,15 +142,14 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate  {
             return
         }
         
+        secondViewController.sendTextButtonClosure = {[weak self] (index, text) -> () in
+            self?.cellViewModel.updateDescript(newDescription: text, newIndex: index)
+            return
+        }
+       
+        
         self.navigationController?.pushViewController(secondViewController, animated: true)
         secondViewController.setCellSecondVC(cellFromFirstVC: cellViewModel.createDetailViewModel(for: indexPath)) 
     }
-    
-    
-    
+
 }
-
-
-
-
-
