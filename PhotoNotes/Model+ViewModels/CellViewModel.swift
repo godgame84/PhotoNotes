@@ -16,7 +16,7 @@ protocol CoreDataStackBase {
     
     func getContext() -> NSManagedObjectContext
     
-    func save(imageNew: Data, dateNew: String, realAddress:String, realDescript:String, latitude:Double, longitude: Double, index: Int?, newDescr: String) -> TableCell
+    func save(imageNew: Data, dateNew: String, realAddress:String, realDescript:String, latitude:Double, longitude: Double, index: IndexPath?, newDescr: String) -> TableCell
 
     func getDataFromContext() -> [TableCell]
 }
@@ -31,9 +31,11 @@ class CellViewModel {
 
     // - MARK: Public properties
     
+    
+    
     weak var delegate:ModelDelegate?
     
-    public var sendDataToVC: ((_ managedcell:NSManagedObject)->())?
+    public var sendDataToVC: ((_ managedcell:TableCell)->())?
     
     public var updateDescriptionOnFVC: ((_ managedDescript:String, _ index: Int)->())?
     
@@ -48,56 +50,66 @@ class CellViewModel {
     
     // - MARK: Private properties
     
-    private var fabric = CoreDataStackFactory()
+    private var chosenStack = CoreDataStackFactory().stackOnTarget()
+    
+   // private var dataFromCore: [TableCell] = []
+    
+    private lazy var dataFromCore: [TableCell] = {
+        return self.getDataFromCore()
+    }()
     
     // - MARK: Public methods
     
     func createCell (imageNew: UIImage, dateNew: String, realAddress:String, realDescript:String, realMapCoord:CLLocationCoordinate2D) {
-    
+  
         guard let imageToSave = imageNew.pngData() else {return}
         
-        let managedCellFromCore = CoreDataStackFactory().stackOnTarget().save(imageNew: imageToSave , dateNew: dateNew, realAddress: realAddress, realDescript: realDescript, latitude: realMapCoord.latitude, longitude: realMapCoord.longitude, index: nil, newDescr: "String")
         
-        sendDataToVC?(managedCellFromCore)
         
+        let managedCellFromCore = chosenStack.save(imageNew: imageToSave , dateNew: dateNew, realAddress: realAddress, realDescript: realDescript, latitude: realMapCoord.latitude, longitude: realMapCoord.longitude, index: nil, newDescr: "String")
+        dataFromCore.append(managedCellFromCore)
         delegate?.cellsDidUpdate()
-        
     }
     
     func updateDescript(newDescription:String, newIndex:IndexPath) {
-        CoreDataStackFactory().stackOnTarget().save(imageNew: Data(), dateNew: "", realAddress: "", realDescript: "", latitude: 0, longitude: 0, index: newIndex.row, newDescr: newDescription)
+       self.dataFromCore[newIndex.row].descr = newDescription
+        chosenStack.save(imageNew: Data(), dateNew: "", realAddress: "", realDescript: "", latitude: 0, longitude: 0, index: newIndex, newDescr: newDescription)
         
-        updateDescriptionOnFVC?(newDescription,newIndex.row)
+        
+        
+//        updateDescriptionOnFVC?(newDescription,newIndex.row)
         
         delegate?.cellsDidUpdate()
     }
     
     func getDate( for indexPath: IndexPath) -> String  {
-        return fabric.stackOnTarget().getDataFromContext()[indexPath.row].value(forKeyPath: "date") as! String
+        return chosenStack.getDataFromContext()[indexPath.row].value(forKeyPath: "date") as! String
     }
     
     func getImage( for indexPath: IndexPath) -> UIImage  {
-        return UIImage(data: fabric.stackOnTarget().getDataFromContext()[indexPath.row].value(forKeyPath: "photo") as! Data)!
+        return UIImage(data: chosenStack.getDataFromContext()[indexPath.row].value(forKeyPath: "photo") as! Data)!
       }
     func getAddress(for indexPath: IndexPath) -> String {
-         return fabric.stackOnTarget().getDataFromContext()[indexPath.row].value(forKeyPath: "address") as! String
+         return chosenStack.getDataFromContext()[indexPath.row].value(forKeyPath: "address") as! String
     }
      func getDescript(for indexPath: IndexPath) -> String {
-        return fabric.stackOnTarget().getDataFromContext()[indexPath.row].value(forKeyPath: "descr") as! String
+        return chosenStack.getDataFromContext()[indexPath.row].value(forKeyPath: "descr") as! String
        }
     
+    func getDataFromCore() -> [TableCell] {
+        return dataFromCore
+    }
     
     func createDetailViewModel(for indexPath:IndexPath) ->CellViewModelSecondVC  {
         let index = indexPath.row
-        let dataFromCore = fetchFromCoreData()
         let cellFromCore = dataFromCore[index]
         return CellViewModelSecondVC(newDescr: cellFromCore.value(forKeyPath: "descr") as? String ?? "", newImage: UIImage(data: cellFromCore.value(forKeyPath: "photo") as! Data) ?? #imageLiteral(resourceName: "Image"), newIndexPath: indexPath, newMapCoordinates: CLLocationCoordinate2D(latitude: (cellFromCore.value(forKeyPath: "latitude")) as! CLLocationDegrees, longitude: cellFromCore.value(forKeyPath: "longitude") as! CLLocationDegrees), newAddr: cellFromCore.value(forKeyPath: "address") as! String )
     }
     
     
     
-    func fetchFromCoreData() -> [TableCell] {
-        return fabric.stackOnTarget().getDataFromContext()
+    func fetchFromCoreData()  {
+        dataFromCore = chosenStack.getDataFromContext()
     }
   }
 

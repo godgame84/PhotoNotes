@@ -11,15 +11,12 @@ import CoreData
 import UIKit
 
 class CoreContainer:CoreDataStackBase {
+    
+    // - MARK: Private properties
+    
+    private var fetchSortDescriptor = NSSortDescriptor(key: #keyPath(TableCell.date), ascending: true)
+    
     private var modelName: String
-    
-    init() {
-            
-            self.modelName = "PhotoModel"
-
-            }
-    
-   
     
     private lazy var mainContext : NSManagedObjectContext = {
         return self.storeContainer.viewContext
@@ -36,7 +33,11 @@ class CoreContainer:CoreDataStackBase {
         return container
     }()
     
-    
+    init() {
+              
+              self.modelName = "PhotoModel"
+
+              }
 
     func getContext () -> NSManagedObjectContext{
         return self.mainContext
@@ -44,12 +45,11 @@ class CoreContainer:CoreDataStackBase {
     
     func getDataFromContext() -> [TableCell] {
           var dateToReveal: [TableCell] = []
-                  
-          let managedContext = self.mainContext
           
         let fetchRequest : NSFetchRequest<TableCell> = TableCell.fetchRequest()
+//        fetchRequest.sortDescriptors = [self.fetchSortDescriptor]
           do {
-              dateToReveal = try managedContext.fetch(fetchRequest)
+            dateToReveal = try self.mainContext.fetch(fetchRequest)
           }   catch let error as NSError{
               print("Could not fetch. \(error), \(error.userInfo)")
           }
@@ -57,9 +57,23 @@ class CoreContainer:CoreDataStackBase {
           return dateToReveal
       }
       
-      func save(imageNew: Data, dateNew: String, realAddress: String, realDescript: String, latitude: Double, longitude: Double, index: Int?, newDescr:String) -> TableCell {
+      func save(imageNew: Data, dateNew: String, realAddress: String, realDescript: String, latitude: Double, longitude: Double, index: IndexPath?, newDescr:String) -> TableCell {
 
-        let managedCell = TableCell(context:self.mainContext)
+     
+        let managedCell = TableCell(context: self.mainContext)
+        
+        if index != nil {
+            guard self.mainContext.hasChanges else {
+                return managedCell
+            }
+            do {
+                try self.mainContext.save()
+            } catch let error as NSError {
+                print("Can't save after change. \(error), \(error.userInfo)")
+                
+            }
+            return managedCell
+        }
         
         managedCell.address = realAddress
         managedCell.date = dateNew
@@ -75,13 +89,6 @@ class CoreContainer:CoreDataStackBase {
         }
         return managedCell
       }
-      
-
-
-
-
-
-
 }
 
 
