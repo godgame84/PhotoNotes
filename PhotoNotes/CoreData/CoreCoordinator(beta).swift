@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 class CoreCoordinator:CoreDataStackBase {
-    
+
     
     private(set) var mainContext = NSManagedObjectContext.init(concurrencyType: .mainQueueConcurrencyType)
     private let privateContext = NSManagedObjectContext.init(concurrencyType: .privateQueueConcurrencyType)
